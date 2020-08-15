@@ -1,5 +1,5 @@
 using System;
-using tasks.application.Dtos;
+using System.Collections.Generic;
 using tasks.application.Services;
 using tasks.domain.Entities;
 using tasks.domain.Enums;
@@ -43,6 +43,64 @@ namespace tasks.test
         
             // Assert
             Assert.Equal(TarefaStatus.Pendente, tarefaService.Status);      
+        }
+
+        [Fact(DisplayName = "Fechar Tarefa - Data Concluida deve ser igual a hoje")]
+        public void FecharTarefa_TarefaExistente_DataDeveSerIgualHoje()
+        {
+            // Arrange
+            var dataHoje = DateTime.Now;
+            var tarefaService = new TarefaService();
+            var tarefa = new Tarefa(){
+                Descricao = "Tarefa Teste",
+                Status = TarefaStatus.Concluido,
+                Estimado = DateTime.Now.AddHours(-1),
+                Concluido = dataHoje
+            };
+        
+            // Act
+            tarefaService.Adicionar(tarefa);
+        
+            // Assert
+            Assert.Equal(tarefaService.Concluido, dataHoje);
+        }
+
+        [Fact(DisplayName = "Fechar Tarefa - Status Deve ser Concluido")]
+        public void FecharTarefa_TarefaExistente_StatusDeveSerConcluido()
+        {
+            // Arrange
+            var tarefaService = new TarefaService();
+            var tarefa = new Tarefa(){
+                Descricao = "Tarefa Teste",
+                Status = TarefaStatus.Concluido,
+                Estimado = DateTime.Now.AddHours(-1),
+                Concluido = DateTime.Now
+            };
+        
+            // Act
+            tarefaService.Adicionar(tarefa);
+        
+            // Assert
+            Assert.Equal(tarefaService.Status, TarefaStatus.Concluido);
+        }
+
+        [Fact(DisplayName = "Fechar Tarefa - Data Estimada Deve Ser Menor que a Concluida")]
+        public void FecharTarefa_TarefaExistente_DataEstimadaDeveSerMenorQueConcluida()
+        {
+            // Arrange
+            var tarefaService = new TarefaService();
+            var tarefa = new Tarefa(){
+                Descricao = "Tarefa Teste",
+                Status = TarefaStatus.Concluido,
+                Estimado = DateTime.Now.AddHours(-1),
+                Concluido = DateTime.Now
+            };
+        
+            // Act
+            tarefaService.Adicionar(tarefa);
+        
+            // Assert
+            Assert.True(tarefaService.Concluido > tarefaService.Estimado);
         }
     }
 }
