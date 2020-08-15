@@ -1,0 +1,14 @@
+1 - Cadastrar tarefa
+	A data estimada deve ser maior que hoje
+	O status deve ser pendente.
+
+2 - Fechar tarefa
+	Adicionar data concluida como hoje.
+	o status deve ser concluido.
+
+3 - Esconder/Mostrar tarefas concluidas
+	Deve-se retornar somente concluidas ou em andamento em ambas, de acordo com parametro recebido.
+
+4 - Login do usuário
+	O usuário deve fazer login.
+	O login deve ser bloqueado para senha ou email incorreto.
