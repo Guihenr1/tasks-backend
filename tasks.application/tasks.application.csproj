@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\tasks.domain\tasks.domain.csproj" />
+    <ProjectReference Include="..\tasks.core\tasks.core.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

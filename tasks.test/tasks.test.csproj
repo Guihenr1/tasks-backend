@@ -16,6 +16,7 @@
   <ItemGroup>
     <ProjectReference Include="..\tasks.application\tasks.application.csproj" />
     <ProjectReference Include="..\tasks.domain\tasks.domain.csproj" />
+    <ProjectReference Include="..\tasks.core\tasks.core.csproj" />
   </ItemGroup>
 
 </Project>

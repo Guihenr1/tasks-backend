@@ -1,5 +1,6 @@
 using System;
 using tasks.application.Services;
+using tasks.core.DomainObjects;
 using tasks.domain.Entities;
 using tasks.domain.Enums;
 using Xunit;
@@ -15,7 +16,6 @@ namespace tasks.test
             var tarefaService = new TarefaService();
             var tarefa = new Tarefa(){
                 Descricao = "Tarefa Teste",
-                Status = TarefaStatus.Pendente,
                 Estimado = DateTime.Now.AddHours(1)
             };
 
@@ -33,7 +33,6 @@ namespace tasks.test
             var tarefaService = new TarefaService();
             var tarefa = new Tarefa(){
                 Descricao = "Tarefa Teste",
-                Status = TarefaStatus.Pendente,
                 Estimado = DateTime.Now.AddHours(1)
             };
         
@@ -51,7 +50,6 @@ namespace tasks.test
             var tarefaService = new TarefaService();
             var tarefa = new Tarefa(){
                 Descricao = "Tarefa Teste",
-                Status = TarefaStatus.Pendente,
                 Estimado = DateTime.Now.AddHours(-1)
             };
         
@@ -88,7 +86,6 @@ namespace tasks.test
             var tarefaService = new TarefaService();
             var tarefa = new Tarefa(){
                 Descricao = "Tarefa Teste",
-                Status = TarefaStatus.Pendente,
                 Estimado = DateTime.Now.AddHours(-1)
             };
         
@@ -98,6 +95,20 @@ namespace tasks.test
         
             // Assert
             Assert.True(tarefaService.Concluido > tarefaService.Estimado);
+        }
+
+        [Fact(DisplayName = "Fechar Tarefa - Tarefa inexistente")]
+        public void FecharTarefa_TarefaInexistente_DeveRetornarException()
+        {
+            // Arrange
+            var tarefaService = new TarefaService();
+            var tarefa = new Tarefa(){
+                Descricao = "Tarefa Teste",
+                Estimado = DateTime.Now.AddHours(-1)
+            };
+        
+            // Act & Assert
+            Assert.Throws<DomainException>(() => tarefaService.Fechar(tarefa));
         }
     }
 }
