@@ -13,7 +13,11 @@ namespace tasks.application.Services
         public void Adicionar(Tarefa tarefa){
             Estimado = tarefa.Estimado;
             Status = TarefaStatus.Pendente;
-            Concluido = tarefa.Concluido;
+        }
+
+        public void Fechar(Tarefa tarefa){
+            Concluido = DateTime.Now;
+            Status = TarefaStatus.Concluido;
         }
     }
 }

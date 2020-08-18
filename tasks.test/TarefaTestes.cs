@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using tasks.application.Services;
 using tasks.domain.Entities;
 using tasks.domain.Enums;
@@ -49,20 +48,19 @@ namespace tasks.test
         public void FecharTarefa_TarefaExistente_DataDeveSerIgualHoje()
         {
             // Arrange
-            var dataHoje = DateTime.Now;
             var tarefaService = new TarefaService();
             var tarefa = new Tarefa(){
                 Descricao = "Tarefa Teste",
-                Status = TarefaStatus.Concluido,
-                Estimado = DateTime.Now.AddHours(-1),
-                Concluido = dataHoje
+                Status = TarefaStatus.Pendente,
+                Estimado = DateTime.Now.AddHours(-1)
             };
         
             // Act
             tarefaService.Adicionar(tarefa);
+            tarefaService.Fechar(tarefa);
         
             // Assert
-            Assert.Equal(tarefaService.Concluido, dataHoje);
+            Assert.Equal(tarefaService.Concluido.Value.Hour, DateTime.Now.Hour);
         }
 
         [Fact(DisplayName = "Fechar Tarefa - Status Deve ser Concluido")]
@@ -72,13 +70,12 @@ namespace tasks.test
             var tarefaService = new TarefaService();
             var tarefa = new Tarefa(){
                 Descricao = "Tarefa Teste",
-                Status = TarefaStatus.Concluido,
-                Estimado = DateTime.Now.AddHours(-1),
-                Concluido = DateTime.Now
+                Estimado = DateTime.Now.AddHours(-1)
             };
         
             // Act
             tarefaService.Adicionar(tarefa);
+            tarefaService.Fechar(tarefa);
         
             // Assert
             Assert.Equal(tarefaService.Status, TarefaStatus.Concluido);
@@ -91,13 +88,13 @@ namespace tasks.test
             var tarefaService = new TarefaService();
             var tarefa = new Tarefa(){
                 Descricao = "Tarefa Teste",
-                Status = TarefaStatus.Concluido,
-                Estimado = DateTime.Now.AddHours(-1),
-                Concluido = DateTime.Now
+                Status = TarefaStatus.Pendente,
+                Estimado = DateTime.Now.AddHours(-1)
             };
         
             // Act
             tarefaService.Adicionar(tarefa);
+            tarefaService.Fechar(tarefa);
         
             // Assert
             Assert.True(tarefaService.Concluido > tarefaService.Estimado);
