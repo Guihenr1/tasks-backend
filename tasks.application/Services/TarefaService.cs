@@ -19,10 +19,18 @@ namespace tasks.application.Services
         }
 
         public void Fechar(Tarefa tarefa){
-            if (Id == Guid.Empty) throw new DomainException("Pedido não encontrado");
+            VerificarSeTarefaExiste();
 
             Concluido = DateTime.Now;
             Status = TarefaStatus.Concluido;
+        }
+
+        public void Remover(Tarefa tarefa){
+            VerificarSeTarefaExiste();
+        }
+
+        void VerificarSeTarefaExiste(){
+            if (Id == Guid.Empty) throw new DomainException("Tarefa não encontrado");
         }
     }    
 }
