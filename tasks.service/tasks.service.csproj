@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <ItemGroup>
+    <ProjectReference Include="..\tasks.domain\tasks.domain.csproj" />
+    <ProjectReference Include="..\tasks.core\tasks.core.csproj" />
+    <ProjectReference Include="..\tasks.infra.crossCutting\tasks.infra.crossCutting.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+
+</Project>
