@@ -1,6 +1,6 @@
 using System;
 using tasks.application.Services;
-using tasks.core.DomainObjects;
+using tasks.domain.DomainException;
 using tasks.domain.Entities;
 using tasks.domain.Enums;
 using Xunit;
@@ -19,10 +19,10 @@ namespace tasks.test
         public void AdicionarTarefa_NovaTarefa_DataDeveSerMaiorQueHoje()
         {
             // Arrange
-            var tarefa = new Tarefa(){
-                Descricao = "Tarefa Teste",
-                Estimado = DateTime.Now.AddHours(1)
-            };
+            var tarefa = new Tarefa(
+                "Tarefa Teste",
+                DateTime.Now.AddHours(1)
+            );
 
             // Act
             _tarefaService.Adicionar(tarefa);
@@ -35,10 +35,10 @@ namespace tasks.test
         public void AdicionarTarefa_NovaTarefa_StatusDeveSerPendente()
         {
             // Arrange
-            var tarefa = new Tarefa(){
-                Descricao = "Tarefa Teste",
-                Estimado = DateTime.Now.AddHours(1)
-            };
+            var tarefa = new Tarefa(
+                "Tarefa Teste",
+                DateTime.Now.AddHours(1)
+            );
         
             // Act
             _tarefaService.Adicionar(tarefa);
@@ -51,10 +51,10 @@ namespace tasks.test
         public void FecharTarefa_TarefaExistente_DataDeveSerIgualHoje()
         {
             // Arrange
-            var tarefa = new Tarefa(){
-                Descricao = "Tarefa Teste",
-                Estimado = DateTime.Now.AddHours(-1)
-            };
+            var tarefa = new Tarefa(
+                "Tarefa Teste",
+                DateTime.Now.AddHours(-1)
+            );
         
             // Act
             _tarefaService.Adicionar(tarefa);
@@ -68,10 +68,10 @@ namespace tasks.test
         public void FecharTarefa_TarefaExistente_StatusDeveSerConcluido()
         {
             // Arrange
-            var tarefa = new Tarefa(){
-                Descricao = "Tarefa Teste",
-                Estimado = DateTime.Now.AddHours(-1)
-            };
+            var tarefa = new Tarefa(
+                "Tarefa Teste",
+                DateTime.Now.AddHours(-1)
+            );
         
             // Act
             _tarefaService.Adicionar(tarefa);
@@ -85,10 +85,9 @@ namespace tasks.test
         public void FecharTarefa_TarefaExistente_DataEstimadaDeveSerMenorQueConcluida()
         {
             // Arrange
-            var tarefa = new Tarefa(){
-                Descricao = "Tarefa Teste",
-                Estimado = DateTime.Now.AddHours(-1)
-            };
+            var tarefa = new Tarefa(
+                "Tarefa Teste",
+                DateTime.Now.AddHours(-1));
         
             // Act
             _tarefaService.Adicionar(tarefa);
@@ -102,10 +101,10 @@ namespace tasks.test
         public void FecharTarefa_TarefaInexistente_DeveRetornarException()
         {
             // Arrange
-            var tarefa = new Tarefa(){
-                Descricao = "Tarefa Teste",
-                Estimado = DateTime.Now.AddHours(-1)
-            };
+            var tarefa = new Tarefa(
+                "Tarefa Teste",
+                DateTime.Now.AddHours(-1)
+            );
         
             // Act & Assert
             Assert.Throws<DomainException>(() => _tarefaService.Fechar(tarefa));
@@ -115,13 +114,39 @@ namespace tasks.test
         public void RemoverTarefa_TarefaInexistente_DeveRetornarException()
         {
             // Arrange
-            var tarefa = new Tarefa(){
-                Descricao = "Tarefa Teste",
-                Estimado = DateTime.Now.AddHours(-1)
-            };
+            var tarefa = new Tarefa(
+                "Tarefa Teste",
+                DateTime.Now.AddHours(-1)
+            );
         
             // Act & Assert
             Assert.Throws<DomainException>(() => _tarefaService.Remover(tarefa));
+        }
+
+        [Fact(DisplayName = "Validar Tarefa - Descrição vazia")]
+        public void AdicionarTarefa_Validar_DescricaoVaziaDeveRetornarErro()
+        {
+            // Arrange
+            var ex = new Tarefa(string.Empty, DateTime.Now.AddHours(1));
+
+            // Act
+            ex.EhValido();
+
+            // Assert
+            Assert.False(ex.ValidationResult.IsValid);
+        }
+
+        [Fact(DisplayName = "Validar Tarefa - Horário anterior a agora")]
+        public void AdicionarTarefa_Validar_HoraAnteriorAHojeDeveRetornarErro()
+        {
+            // Arrange
+            var ex = new Tarefa("Teste", DateTime.Now.AddDays(-1));
+
+            // Act
+            ex.EhValido();
+
+            // Assert
+            Assert.False(ex.ValidationResult.IsValid);
         }
     }
 }

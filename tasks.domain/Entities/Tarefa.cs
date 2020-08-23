@@ -1,39 +1,28 @@
 using System;
-using FluentValidation;
+using tasks.domain.Entities.Validacao;
 using tasks.domain.Enums;
 
 namespace tasks.domain.Entities
 {
-    public class Tarefa
+    public class Tarefa : Entity
     {
-        public Guid Id { get; set; }
-        public string Descricao { get; set; }
-        public TarefaStatus Status { get; set; }
-        public DateTime Estimado { get; set; }
-        public DateTime? Concluido { get; set; }
+        public string Descricao { get; private set; }
+        public TarefaStatus Status { get; private set; }
+        public DateTime Estimado { get; private set; }
+        public DateTime? Concluido { get; private set; }
 
-        public bool EhValido()
+        public Tarefa(string descricao, DateTime estimado)
         {
-            return new AdicionarTarefaValidation().Validate(this).IsValid;
+            Descricao = descricao;
+            Estimado = estimado;
         }
-    }
 
-    public class AdicionarTarefaValidation : AbstractValidator<Tarefa>
-    {
-        static string DescricaoErroMsg => "A descrição deve ter de 1 a 30 caracteres";
-        static string EstimadoErroMsg => "A data estimada deve ter um valor maior que hoje";
+        public void Concluir() => Status = TarefaStatus.Concluido;
 
-        public AdicionarTarefaValidation()
+        public override bool EhValido()
         {
-            RuleFor(a => a.Descricao)
-                .NotEmpty().NotNull()
-                .MinimumLength(1).MaximumLength(30)
-                .WithMessage(DescricaoErroMsg);
-
-            RuleFor(a => a.Estimado)
-                .NotEmpty().NotNull()
-                .GreaterThanOrEqualTo(DateTime.Now.Date)
-                .WithMessage(EstimadoErroMsg);
+            ValidationResult = new TarefaValidacao().Validate(this);
+            return ValidationResult.IsValid;
         }
     }
 }

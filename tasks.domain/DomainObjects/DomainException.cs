@@ -1,6 +1,6 @@
 using System;
 
-namespace tasks.core.DomainObjects
+namespace tasks.domain.DomainException
 {
     public class DomainException : Exception 
     {

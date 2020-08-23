@@ -1,5 +1,5 @@
 using System;
-using tasks.core.DomainObjects;
+using tasks.domain.DomainException;
 using tasks.domain.Entities;
 using tasks.domain.Enums;
 
