@@ -1,4 +1,5 @@
 using System;
+using Moq.AutoMock;
 using tasks.application.Services;
 using tasks.domain.DomainException;
 using tasks.domain.Entities;
@@ -10,9 +11,11 @@ namespace tasks.test
     public class TarefaTestes
     {
         private readonly TarefaService _tarefaService;
+        AutoMocker mocker;
         public TarefaTestes()
         {
-            _tarefaService = new TarefaService();
+            mocker = new AutoMocker();
+            _tarefaService = mocker.CreateInstance<TarefaService>();
         }
 
         [Fact(DisplayName = "Adicionar Tarefa - Data Deve ser Maior que Hoje")]
