@@ -13,15 +13,18 @@ namespace tasks.domain.Entities
         public DateTime? Concluido { get; private set; }
         public DateTime DataCadastro { get; private set; }
 
-        public Tarefa(string descricao, DateTime estimado)
+        public Tarefa(Guid id, string descricao, DateTime estimado, DateTime? concluido)
         {
+            Id = id;
             Descricao = descricao;
             Estimado = estimado;
+            Concluido = concluido;
         }
 
         protected Tarefa() {  }
 
-        public void Concluir() => Status = TarefaStatus.Concluido;
+        public void Fechar() => Status = TarefaStatus.Concluido;
+        public void Criar() => Status = TarefaStatus.Pendente;
 
         public override bool EhValido()
         {

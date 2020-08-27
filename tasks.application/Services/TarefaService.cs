@@ -1,65 +1,71 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using tasks.application.Interfaces;
-using tasks.domain.DomainException;
+using tasks.application.ViewModels;
 using tasks.domain.Entities;
-using tasks.domain.Enums;
 using tasks.domain.Interfaces;
 
 namespace tasks.application.Services
 {
     public class TarefaService : ITarefaService
     {
+        private readonly IMapper mapper;
         private readonly ITarefaRepository tarefaRepository;
-        public TarefaService(ITarefaRepository tarefaRepository)
+        public TarefaService(
+            ITarefaRepository tarefaRepository
+            , IMapper mapper)
         {
+            this.mapper = mapper;
             this.tarefaRepository = tarefaRepository;
         }
 
         public Guid Id { get; private set; }
         public DateTime Estimado { get; private set; }
         public DateTime? Concluido { get; private set; }
-        public TarefaStatus Status { get; private set; }
 
-        public void Adicionar(Tarefa tarefa)
+        public async Task<IEnumerable<TarefaViewModel>> ObterTodos()
+        {
+            var result = await tarefaRepository.ObterTodos();
+            return mapper.ProjectTo<TarefaViewModel>(result.AsQueryable());
+        }
+
+        public void Adicionar(TarefaViewModel tarefa)
         {
             Id = Guid.NewGuid();
             Estimado = tarefa.Estimado;
-            Status = TarefaStatus.Pendente;
+
+            var tarefaAdicionar = new Tarefa(
+                Id, 
+                tarefa.Descricao, 
+                Estimado,
+                null
+            );
+            
+            tarefaAdicionar.Criar();
+
+            tarefaRepository.Adicionar(tarefaAdicionar);
         }
 
-        public void Atualizar(Tarefa tarefa)
+        public void Fechar(TarefaViewModel tarefa)
         {
-            throw new NotImplementedException();
-        }
+            var tarefaFechar = new Tarefa(
+                Id,
+                tarefa.Descricao,
+                tarefa.Estimado,
+                Concluido = DateTime.Now                
+            );
 
-        public void Fechar(Tarefa tarefa)
-        {
-            VerificarSeTarefaExiste();
+            tarefaFechar.Fechar();
 
-            Concluido = DateTime.Now;
-            Status = TarefaStatus.Concluido;
-        }
-
-        public Task<IEnumerable<Tarefa>> ObterTodos()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Remover(Tarefa tarefa)
-        {
-            VerificarSeTarefaExiste();
-        }
-
-        void VerificarSeTarefaExiste()
-        {
-            if (Id == Guid.Empty) throw new DomainException("Tarefa não encontrado");
+            tarefaRepository.Atualizar(tarefaFechar);
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            GC.SuppressFinalize(this);
         }
     }
 }
