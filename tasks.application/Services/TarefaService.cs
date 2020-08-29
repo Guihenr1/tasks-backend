@@ -32,7 +32,7 @@ namespace tasks.application.Services
             return mapper.ProjectTo<TarefaViewModel>(result.AsQueryable());
         }
 
-        public void Adicionar(TarefaViewModel tarefa)
+        public async Task<bool> Adicionar(TarefaViewModel tarefa)
         {
             Id = Guid.NewGuid();
             Estimado = tarefa.Estimado;
@@ -47,9 +47,10 @@ namespace tasks.application.Services
             tarefaAdicionar.Criar();
 
             tarefaRepository.Adicionar(tarefaAdicionar);
+            return await tarefaRepository.UnitOfWork.Commit();
         }
 
-        public void Fechar(TarefaViewModel tarefa)
+        public async Task<bool> Fechar(TarefaViewModel tarefa)
         {
             var tarefaFechar = new Tarefa(
                 Id,
@@ -61,6 +62,7 @@ namespace tasks.application.Services
             tarefaFechar.Fechar();
 
             tarefaRepository.Atualizar(tarefaFechar);
+            return await tarefaRepository.UnitOfWork.Commit();
         }
 
         public void Dispose()

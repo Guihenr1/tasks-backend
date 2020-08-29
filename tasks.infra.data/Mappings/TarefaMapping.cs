@@ -12,7 +12,7 @@ namespace tasks.infra.data.Mappings
 
             builder.Property(c => c.Descricao)
                 .IsRequired()
-                .HasColumnType("varchar(250)");
+                .HasColumnType("varchar(100)");
 
             builder.Property(c => c.Status)
                 .IsRequired()
@@ -23,6 +23,10 @@ namespace tasks.infra.data.Mappings
                 .HasColumnType("DateTime");
 
             builder.Property(c => c.Concluido)
+                .HasColumnType("DateTime");
+
+            builder.Property(c => c.DataCadastro)
+                .IsRequired()
                 .HasColumnType("DateTime");
         }
     }

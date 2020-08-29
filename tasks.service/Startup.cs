@@ -45,7 +45,7 @@ namespace tasks.service
         }
 
         private void RegisterServices (IServiceCollection services) {
-            Bootstrapper.AddSetupIoC (services, Configuration);
+            Bootstrapper.AddSetupIoC (services);
         }
     }
 }

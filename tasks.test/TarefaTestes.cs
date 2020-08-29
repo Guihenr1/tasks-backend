@@ -1,9 +1,11 @@
 using System;
+using System.Threading.Tasks;
+using Moq;
 using Moq.AutoMock;
-using tasks.application.Interfaces;
 using tasks.application.Services;
 using tasks.application.ViewModels;
 using tasks.domain.Entities;
+using tasks.domain.Interfaces;
 using Xunit;
 
 namespace tasks.test
@@ -19,7 +21,7 @@ namespace tasks.test
         }
 
         [Fact(DisplayName = "Adicionar Tarefa - Data Deve ser Maior que Hoje")]
-        public void AdicionarTarefa_NovaTarefa_DataDeveSerMaiorQueHoje()
+        public async Task AdicionarTarefa_NovaTarefa_DataDeveSerMaiorQueHoje()
         {
             // Arrange
             var tarefa = new TarefaViewModel()
@@ -29,7 +31,9 @@ namespace tasks.test
             };
 
             // Act
-            _tarefaService.Adicionar(tarefa);
+            var mock = new Mock<ITarefaRepository>();
+            mock.Setup(c => c.UnitOfWork.Commit()).Returns(() => Task.FromResult(true)).Verifiable();
+            await _tarefaService.Adicionar(tarefa);
 
             // Assert
             Assert.True(DateTime.Now < _tarefaService.Estimado);
@@ -37,7 +41,7 @@ namespace tasks.test
         }
 
         [Fact(DisplayName = "Fechar Tarefa - Data Concluida deve ser igual a hoje")]
-        public void FecharTarefa_TarefaExistente_DataDeveSerIgualHoje()
+        public async Task FecharTarefa_TarefaExistente_DataDeveSerIgualHoje()
         {
             // Arrange
             var tarefa = new TarefaViewModel()
@@ -47,15 +51,16 @@ namespace tasks.test
             };
         
             // Act
-            _tarefaService.Adicionar(tarefa);
-            _tarefaService.Fechar(tarefa);
+            await _tarefaService.Adicionar(tarefa);
+            await _tarefaService.Fechar(tarefa);
         
             // Assert
             Assert.Equal(_tarefaService.Concluido.Value.Hour, DateTime.Now.Hour);
+            mocker.VerifyAll();
         }
 
         [Fact(DisplayName = "Fechar Tarefa - Data Estimada Deve Ser Menor que a Concluida")]
-        public void FecharTarefa_TarefaExistente_DataEstimadaDeveSerMenorQueConcluida()
+        public async Task FecharTarefa_TarefaExistente_DataEstimadaDeveSerMenorQueConcluida()
         {
             // Arrange
             var tarefa = new TarefaViewModel()
@@ -65,11 +70,12 @@ namespace tasks.test
             };
         
             // Act
-            _tarefaService.Adicionar(tarefa);
-            _tarefaService.Fechar(tarefa);
+            await _tarefaService.Adicionar(tarefa);
+            await _tarefaService.Fechar(tarefa);
         
             // Assert
             Assert.True(_tarefaService.Concluido > _tarefaService.Estimado);
+            mocker.VerifyAll();
         }
 
         [Fact(DisplayName = "Validar Tarefa - Descrição vazia")]
@@ -88,6 +94,7 @@ namespace tasks.test
 
             // Assert
             Assert.False(ex.ValidationResult.IsValid);
+            mocker.VerifyAll();
         }
 
         [Fact(DisplayName = "Validar Tarefa - Horário anterior a agora")]
@@ -106,6 +113,7 @@ namespace tasks.test
 
             // Assert
             Assert.False(ex.ValidationResult.IsValid);
+            mocker.VerifyAll();
         }
     }
 }

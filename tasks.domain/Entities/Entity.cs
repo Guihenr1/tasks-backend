@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
 using FluentValidation.Results;
 
 namespace tasks.domain.Entities
@@ -6,6 +7,8 @@ namespace tasks.domain.Entities
     public class Entity
     {
         public Guid Id { get; set; }
+        
+        [NotMapped]
         public ValidationResult ValidationResult { get; protected set; }
 
         protected Entity()
