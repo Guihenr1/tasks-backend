@@ -1,25 +1,14 @@
 using System;
-using System.ComponentModel.DataAnnotations.Schema;
-using FluentValidation.Results;
 
 namespace tasks.domain.Entities
 {
     public class Entity
     {
         public Guid Id { get; set; }
-        
-        [NotMapped]
-        public ValidationResult ValidationResult { get; protected set; }
 
         protected Entity()
         {
             Id = Guid.NewGuid();
-            ValidationResult = new ValidationResult();
-        }
-
-        public virtual bool EhValido()
-        {
-            throw new NotImplementedException();
         }
 
         public override bool Equals(object obj)

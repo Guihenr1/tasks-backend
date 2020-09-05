@@ -1,5 +1,4 @@
 using System;
-using tasks.domain.Entities.Validacao;
 using tasks.domain.Enums;
 using tasks.domain.Interfaces;
 
@@ -13,23 +12,20 @@ namespace tasks.domain.Entities
         public DateTime? Concluido { get; private set; }
         public DateTime DataCadastro { get; private set; }
 
-        public Tarefa(Guid id, string descricao, DateTime estimado, DateTime? concluido)
+        public Tarefa(Guid id, string descricao, DateTime estimado)
         {
             Id = id;
             Descricao = descricao;
             Estimado = estimado;
-            Concluido = concluido;
+            Concluido = null;
         }
 
         protected Tarefa() {  }
 
-        public void Fechar() => Status = TarefaStatus.Concluido;
+        public void Fechar(){
+            Status = TarefaStatus.Concluido;
+            Concluido = DateTime.Now;
+        } 
         public void Criar() => Status = TarefaStatus.Pendente;
-
-        public override bool EhValido()
-        {
-            ValidationResult = new TarefaValidacao().Validate(this);
-            return ValidationResult.IsValid;
-        }
     }
 }

@@ -4,9 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using tasks.application.Interfaces;
-using tasks.application.ViewModels;
 using tasks.domain.Entities;
 using tasks.domain.Interfaces;
+using tasks.domain.ViewModels;
+using tasks.domain.ViewModels.Validacao;
 
 namespace tasks.application.Services
 {
@@ -24,24 +25,26 @@ namespace tasks.application.Services
 
         public Guid Id { get; private set; }
         public DateTime Estimado { get; private set; }
-        public DateTime? Concluido { get; private set; }
 
-        public async Task<IEnumerable<TarefaViewModel>> ObterTodos()
+        public async Task<IEnumerable<TarefaResponseViewModel>> ObterTodos()
         {
             var result = await tarefaRepository.ObterTodos();
-            return mapper.ProjectTo<TarefaViewModel>(result.AsQueryable());
+            return mapper.ProjectTo<TarefaResponseViewModel>(result.AsQueryable());
         }
 
-        public async Task<bool> Adicionar(TarefaViewModel tarefa)
+        public async Task<bool> Adicionar(TarefaRequestViewModel tarefa)
         {
+            if(!tarefa.EhValido())
+                return false;
+
+            
             Id = Guid.NewGuid();
             Estimado = tarefa.Estimado;
 
             var tarefaAdicionar = new Tarefa(
                 Id, 
                 tarefa.Descricao, 
-                Estimado,
-                null
+                Estimado
             );
             
             tarefaAdicionar.Criar();
@@ -50,18 +53,12 @@ namespace tasks.application.Services
             return await tarefaRepository.UnitOfWork.Commit();
         }
 
-        public async Task<bool> Fechar(TarefaViewModel tarefa)
+        public async Task<bool> Fechar(FecharTarefaRequestViewModel tarefa)
         {
-            var tarefaFechar = new Tarefa(
-                Id,
-                tarefa.Descricao,
-                tarefa.Estimado,
-                Concluido = DateTime.Now                
-            );
+            var tarefaConcluida = mapper.Map<Tarefa>(tarefa);
+            tarefaConcluida.Fechar();
 
-            tarefaFechar.Fechar();
-
-            tarefaRepository.Atualizar(tarefaFechar);
+            tarefaRepository.Fechar(tarefaConcluida);
             return await tarefaRepository.UnitOfWork.Commit();
         }
 

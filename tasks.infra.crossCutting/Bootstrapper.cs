@@ -6,12 +6,13 @@ using tasks.infra.data.Repository;
 using tasks.application.AutoMapper;
 using AutoMapper;
 using tasks.infra.data;
+using Microsoft.Extensions.Configuration;
 
 namespace tasks.infra.crossCutting
 {
     public static class Bootstrapper
     {
-        public static IServiceCollection AddSetupIoC (this IServiceCollection services) {
+        public static IServiceCollection AddSetupIoC (this IServiceCollection services, IConfiguration config, bool isDev) {
             services.ConfigureAutoMapper ();
             services.RegisterServices ();
             services.AddRepositories ();
@@ -29,7 +30,7 @@ namespace tasks.infra.crossCutting
 
         private static void AddRepositories (this IServiceCollection services) {
             services.AddScoped<ITarefaRepository, TarefaRepository> ();
-            services.AddScoped<TarefaContext>(c => c.GetService<TarefaContext>());
+            services.AddScoped<TarefaContext>();
         }
     }
 }

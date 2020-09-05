@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
@@ -20,7 +21,7 @@ namespace tasks.infra.data.Repository
             context.Tarefas.AddAsync(tarefa);
         }
 
-        public void Atualizar(Tarefa tarefa)
+        public void Fechar(Tarefa tarefa)
         {
             context.Tarefas.Update(tarefa);
         }
