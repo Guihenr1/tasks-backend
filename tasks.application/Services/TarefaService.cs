@@ -55,6 +55,9 @@ namespace tasks.application.Services
 
         public async Task<bool> Fechar(FecharTarefaRequestViewModel tarefa)
         {
+            if(!tarefa.EhValido())
+                return false;
+                
             var tarefaConcluida = mapper.Map<Tarefa>(tarefa);
             tarefaConcluida.Fechar();
 

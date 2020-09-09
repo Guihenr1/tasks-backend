@@ -19,6 +19,7 @@ namespace tasks.api.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> ObterTodos()
         {
             IEnumerable<TarefaResponseViewModel> result = new List<TarefaResponseViewModel>();
@@ -36,6 +37,7 @@ namespace tasks.api.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> Adicionar([FromBody]TarefaRequestViewModel tarefa)
         {
             try
@@ -54,6 +56,7 @@ namespace tasks.api.Controllers
         }
 
         [HttpPatch("")]
+        [Authorize]
         public async Task<IActionResult> Fechar([FromBody]FecharTarefaRequestViewModel tarefa)
         {
             try

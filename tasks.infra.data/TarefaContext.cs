@@ -19,6 +19,7 @@ namespace tasks.infra.data
             : base(options) {  }
 
         public DbSet<Tarefa> Tarefas { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -1,6 +1,7 @@
 using System;
+using tasks.domain.ViewModels.Validacao;
 
-namespace tasks.domain.ViewModels.Validacao
+namespace tasks.domain.ViewModels
 {
     public class FecharTarefaRequestViewModel : Validation
     {

@@ -18,7 +18,6 @@ namespace tasks.api.Controllers
 
         private IActionResult MakeResponse(IActionResult result)
         {
-            Response.Headers.Add("X-Request-Id", _requestId);
             return result;
         }
         protected IActionResult CreateResponse<T>(T dto)
@@ -58,6 +57,18 @@ namespace tasks.api.Controllers
                     Status = status,
                     Message = $"{_requestId}",
                     Validation = errors
+                }
+            ));
+        }
+        protected IActionResult CreateErrorResponse(string message, int statusCode)
+        {
+            var status = HttpStatusCode.Unauthorized.GetHashCode();
+            return MakeResponse(StatusCode(
+                status,
+                new ErrorResponse()
+                {
+                    Status = status,
+                    Message = $"{_requestId} :: {message}"
                 }
             ));
         }

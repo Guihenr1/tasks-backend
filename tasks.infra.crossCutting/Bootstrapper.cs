@@ -26,10 +26,12 @@ namespace tasks.infra.crossCutting
 
         private static void RegisterServices (this IServiceCollection services) {
             services.AddScoped<ITarefaService, TarefaService> ();
+            services.AddScoped<IUsuarioService, UsuarioService> ();
         }
 
         private static void AddRepositories (this IServiceCollection services) {
             services.AddScoped<ITarefaRepository, TarefaRepository> ();
+            services.AddScoped<IUsuarioRepository, UsuarioRepository> ();
             services.AddScoped<TarefaContext>();
         }
     }

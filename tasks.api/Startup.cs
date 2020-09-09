@@ -11,6 +11,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using tasks.api.Helpers;
+using tasks.domain.Entities;
 using tasks.infra.crossCutting;
 using tasks.infra.data;
 
@@ -36,6 +38,7 @@ namespace tasks.api
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
+            services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
             RegisterServices (services);
         }
 
@@ -52,6 +55,8 @@ namespace tasks.api
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseMiddleware<JwtMiddleware>();
 
             app.UseEndpoints(endpoints =>
             {
