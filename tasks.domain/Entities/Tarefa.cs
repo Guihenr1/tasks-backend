@@ -11,13 +11,16 @@ namespace tasks.domain.Entities
         public DateTime Estimado { get; private set; }
         public DateTime? Concluido { get; private set; }
         public DateTime DataCadastro { get; private set; }
+        public Guid UsuarioId { get; private set; }
+        public virtual Usuario Usuario { get; set; }
 
-        public Tarefa(Guid id, string descricao, DateTime estimado)
+        public Tarefa(Guid id, string descricao, DateTime estimado, Guid usuarioId)
         {
             Id = id;
             Descricao = descricao;
             Estimado = estimado;
             Concluido = null;
+            UsuarioId = usuarioId;
         }
 
         protected Tarefa() {  }

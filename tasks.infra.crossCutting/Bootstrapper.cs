@@ -7,6 +7,7 @@ using tasks.application.AutoMapper;
 using AutoMapper;
 using tasks.infra.data;
 using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Http;
 
 namespace tasks.infra.crossCutting
 {
@@ -27,6 +28,7 @@ namespace tasks.infra.crossCutting
         private static void RegisterServices (this IServiceCollection services) {
             services.AddScoped<ITarefaService, TarefaService> ();
             services.AddScoped<IUsuarioService, UsuarioService> ();
+            services.AddScoped<ISecurityService, SecurityService> ();
         }
 
         private static void AddRepositories (this IServiceCollection services) {

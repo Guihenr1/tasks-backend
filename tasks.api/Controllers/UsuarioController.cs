@@ -17,15 +17,18 @@ namespace tasks.api.Controllers
             this.usuarioService = usuarioService;
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Autenticar(AutenticacaoRequisicao dados)
+        [HttpPost("autenticar")]
+        public async Task<IActionResult> Autenticar(AutenticacaoRequisicaoViewModel dados)
         {
-            var result = new AutenticacaoResposta();
+            var result = new AutenticacaoRespostaViewModel();
 
             try
             {
-                result = await usuarioService.Autenticacao(dados);
+                result = await usuarioService.Autenticar(dados);
 
+                if (dados.ValidationResult.Errors.Count > 0)
+                    return CreateValidationErrorResponse(dados.ValidationResult.Errors);
+                    
                 if (result == null) return CreateErrorResponse(ResourceMessages.LOGIN_INCORRETO, 401);
             }
             catch (Exception ex)
@@ -34,6 +37,24 @@ namespace tasks.api.Controllers
             }
 
             return CreateResponse(result);
+        }
+
+        [HttpPost("registrar")]
+        public async Task<IActionResult> Registrar(AdicionarUsuarioViewModel dados)
+        {
+            try
+            {
+                var result = await usuarioService.Adicionar(dados);
+
+                if (dados.ValidationResult.Errors.Count > 0)
+                    return CreateValidationErrorResponse(dados.ValidationResult.Errors);
+            }
+            catch (Exception ex)
+            {                
+                CreateServerErrorResponse(ex, null);
+            }
+
+            return NoContent();
         }
     }
 }

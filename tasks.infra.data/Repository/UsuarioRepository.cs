@@ -16,6 +16,18 @@ namespace tasks.infra.data.Repository
             this.context = context;
         }
 
+        public IUnitOfWork UnitOfWork => context;
+
+        public async Task Adicionar(Usuario usuario)
+        {
+            await context.AddAsync(usuario);
+        }
+
+        public void Dispose()
+        {
+            context?.Dispose();
+        }
+
         public async Task<Usuario> ObterPorEmailESenha(Usuario usuario)
         {
             return await context.Usuarios.SingleOrDefaultAsync(

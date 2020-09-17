@@ -8,7 +8,7 @@ namespace tasks.application.Interfaces
 {
     public interface ITarefaService : IDisposable
     {
-        Task<bool> Adicionar(TarefaRequestViewModel tarefa);  
+        Task<bool> Adicionar(TarefaRequestViewModel tarefa, Guid userId);  
         Task<bool> Fechar(FecharTarefaRequestViewModel tarefa); 
         Task<IEnumerable<TarefaResponseViewModel>> ObterTodos();
     }

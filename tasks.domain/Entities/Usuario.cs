@@ -1,9 +1,10 @@
 using System;
 using System.Text.Json.Serialization;
+using tasks.domain.Interfaces;
 
 namespace tasks.domain.Entities
 {
-    public class Usuario : Entity
+    public class Usuario : Entity, IAggregateRoot
     {
         public string Nome { get; private set; }
         public string Email { get; private set; }

@@ -1,13 +1,11 @@
 using System;
-using tasks.domain.Entities;
 
-namespace tasks.domain.ViewModels
+namespace tasks.domain.DTOs
 {
-    public class AutenticacaoResposta
+    public class UsuarioDto
     {
         public Guid Id { get; set; }
         public string Nome { get; set; }
         public string Email { get; set; }
-        public string Token { get; set; }
     }
 }

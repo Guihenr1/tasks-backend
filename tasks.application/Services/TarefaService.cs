@@ -23,28 +23,22 @@ namespace tasks.application.Services
             this.tarefaRepository = tarefaRepository;
         }
 
-        public Guid Id { get; private set; }
-        public DateTime Estimado { get; private set; }
-
         public async Task<IEnumerable<TarefaResponseViewModel>> ObterTodos()
         {
             var result = await tarefaRepository.ObterTodos();
             return mapper.ProjectTo<TarefaResponseViewModel>(result.AsQueryable());
         }
 
-        public async Task<bool> Adicionar(TarefaRequestViewModel tarefa)
+        public async Task<bool> Adicionar(TarefaRequestViewModel tarefa, Guid userId)
         {
             if(!tarefa.EhValido())
                 return false;
 
-            
-            Id = Guid.NewGuid();
-            Estimado = tarefa.Estimado;
-
             var tarefaAdicionar = new Tarefa(
-                Id, 
+                Guid.NewGuid(), 
                 tarefa.Descricao, 
-                Estimado
+                tarefa.Estimado, 
+                userId
             );
             
             tarefaAdicionar.Criar();

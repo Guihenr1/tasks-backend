@@ -28,6 +28,9 @@ namespace tasks.infra.data.Mappings
             builder.Property(c => c.DataCadastro)
                 .IsRequired()
                 .HasColumnType("DateTime");
+
+            builder.Property(c => c.UsuarioId)
+                .IsRequired();
         }
     }
 }

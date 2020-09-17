@@ -10,8 +10,8 @@ using tasks.infra.data;
 namespace tasks.infra.data.Migrations
 {
     [DbContext(typeof(TarefaContext))]
-    [Migration("20200904010241_atualizacao")]
-    partial class atualizacao
+    [Migration("20200911200520_FKCliente")]
+    partial class FKCliente
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -43,9 +43,46 @@ namespace tasks.infra.data.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
+                    b.Property<Guid>("UsuarioId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("Id");
 
+                    b.HasIndex("UsuarioId");
+
                     b.ToTable("Tarefas");
+                });
+
+            modelBuilder.Entity("tasks.domain.Entities.Usuario", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("Senha")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Usuarios");
+                });
+
+            modelBuilder.Entity("tasks.domain.Entities.Tarefa", b =>
+                {
+                    b.HasOne("tasks.domain.Entities.Usuario", "Usuario")
+                        .WithMany()
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

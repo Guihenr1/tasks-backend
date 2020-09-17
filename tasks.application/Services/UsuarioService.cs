@@ -7,6 +7,7 @@ using AutoMapper;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using tasks.application.Interfaces;
+using tasks.domain.DTOs;
 using tasks.domain.Entities;
 using tasks.domain.Interfaces;
 using tasks.domain.ViewModels;
@@ -17,49 +18,44 @@ namespace tasks.application.Services
     {
         private readonly IMapper mapper;
         private readonly IUsuarioRepository usuarioRepository;
-        private readonly AppSettings appSettings;
+        private readonly ISecurityService securityService;
         public UsuarioService(IMapper mapper
             , IUsuarioRepository usuarioRepository
-            , IOptions<AppSettings> appSettings)
+            , ISecurityService securityService)
         {
             this.mapper = mapper;
             this.usuarioRepository = usuarioRepository;
-            this.appSettings = appSettings.Value;
+            this.securityService = securityService;
         }
 
-        public async Task<Usuario> ObterPorId(Guid id)
+        public async Task<UsuarioDto> ObterPorId(Guid id)
         {
-            return await usuarioRepository.ObterPorId(id);
+            return mapper.Map<UsuarioDto>(await usuarioRepository.ObterPorId(id));
         }
 
-        public async Task<AutenticacaoResposta> Autenticacao(AutenticacaoRequisicao autenticacao)
+        public async Task<bool> Adicionar(AdicionarUsuarioViewModel usuario)
         {
-            AutenticacaoResposta resposta;
+            if (!usuario.EhValido()) return false;
+
+            await usuarioRepository.Adicionar(mapper.Map<Usuario>(usuario));
+            return await usuarioRepository.UnitOfWork.Commit();
+        }
+
+        public async Task<AutenticacaoRespostaViewModel> Autenticar(AutenticacaoRequisicaoViewModel autenticacao)
+        {
+            AutenticacaoRespostaViewModel resposta;
+            if (!autenticacao.EhValido()) return null;
+
             var usuario = await usuarioRepository.ObterPorEmailESenha(
                 mapper.Map<Usuario>(autenticacao)
             );
 
             if(usuario == null) return null;
 
-            resposta = mapper.Map<AutenticacaoResposta>(usuario);
-            resposta.Token = gerarJwtToken(usuario);
+            resposta = mapper.Map<AutenticacaoRespostaViewModel>(usuario);
+            resposta.Token = securityService.gerarJwtToken(mapper.Map<UsuarioDto>(usuario));
 
             return resposta;
-        }
-
-        private string gerarJwtToken(Usuario usuario)
-        {
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(appSettings.Secret);
-            var tokenDescriptor = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(new[] { new Claim("id", usuario.Id.ToString()) }),
-                Expires = DateTime.UtcNow.AddDays(7),
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
-            };
-
-            var token = tokenHandler.CreateToken(tokenDescriptor);
-            return tokenHandler.WriteToken(token);
         }
 
         public void Dispose()

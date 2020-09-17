@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using tasks.application.Interfaces;
 using tasks.domain.ViewModels;
-using tasks.domain.ViewModels.Validacao;
 
 namespace tasks.api.Controllers
 {
@@ -37,12 +38,12 @@ namespace tasks.api.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        // [Authorize]
         public async Task<IActionResult> Adicionar([FromBody]TarefaRequestViewModel tarefa)
         {
             try
             {
-                var result = await tarefaService.Adicionar(tarefa);
+                var result = await tarefaService.Adicionar(tarefa, GetUserId());
                 
                 if(!result)
                     return CreateValidationErrorResponse(tarefa.ValidationResult.Errors);
@@ -72,6 +73,12 @@ namespace tasks.api.Controllers
             }
 
             return NoContent();
+        }
+
+        protected Guid GetUserId()
+        {
+            var aaa = User.Identity.Name;
+            return Guid.Parse(this.User.Claims.First(i => i.Type == "Id").Value);
         }
     }
 }
