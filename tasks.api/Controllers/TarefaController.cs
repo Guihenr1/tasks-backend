@@ -19,15 +19,15 @@ namespace tasks.api.Controllers
             this.tarefaService = tarefaService;
         }
 
-        [HttpGet]
+        [HttpGet("ObterTodas/{dataConclusao}")]
         [Authorize]
-        public async Task<IActionResult> ObterTodos()
+        public IActionResult ObterTodos(DateTime dataConclusao)
         {
             IEnumerable<TarefaResponseViewModel> result = new List<TarefaResponseViewModel>();
 
             try
             {
-                result = await tarefaService.ObterTodos();
+                result = tarefaService.ObterTodos(GetUserId(), dataConclusao);
             }
             catch (Exception ex)
             {                
@@ -38,7 +38,7 @@ namespace tasks.api.Controllers
         }
 
         [HttpPost]
-        // [Authorize]
+        [Authorize]
         public async Task<IActionResult> Adicionar([FromBody]TarefaRequestViewModel tarefa)
         {
             try
@@ -56,16 +56,13 @@ namespace tasks.api.Controllers
             return NoContent();
         }
 
-        [HttpPatch("")]
+        [HttpGet("{idTarefa}")]
         [Authorize]
-        public async Task<IActionResult> Fechar([FromBody]FecharTarefaRequestViewModel tarefa)
+        public async Task<IActionResult> Alternar(Guid idTarefa)
         {
             try
             {
-                var result = await tarefaService.Fechar(tarefa);
-                
-                if(!result)
-                    return CreateValidationErrorResponse(tarefa.ValidationResult.Errors);
+                var result = await tarefaService.Alternar(idTarefa);
             }
             catch (Exception ex)
             {                
@@ -77,8 +74,7 @@ namespace tasks.api.Controllers
 
         protected Guid GetUserId()
         {
-            var aaa = User.Identity.Name;
-            return Guid.Parse(this.User.Claims.First(i => i.Type == "Id").Value);
+            return Guid.Parse(this.User.Identity.Name);
         }
     }
 }

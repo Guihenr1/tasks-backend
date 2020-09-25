@@ -25,9 +25,14 @@ namespace tasks.domain.Entities
 
         protected Tarefa() {  }
 
-        public void Fechar(){
-            Status = TarefaStatus.Concluido;
-            Concluido = DateTime.Now;
+        public void Alternar(){
+            if (Equals(TarefaStatus.Pendente, Status)){
+                Status = TarefaStatus.Concluido;
+                Concluido = DateTime.Now;
+            } else {
+                Status = TarefaStatus.Pendente;
+                Concluido = null;
+            }
         } 
         public void Criar() => Status = TarefaStatus.Pendente;
     }

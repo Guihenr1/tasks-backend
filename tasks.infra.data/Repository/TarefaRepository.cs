@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using tasks.domain.Entities;
@@ -21,14 +22,19 @@ namespace tasks.infra.data.Repository
             context.Tarefas.AddAsync(tarefa);
         }
 
-        public void Fechar(Tarefa tarefa)
+        public void Alternar(Tarefa tarefa)
         {
             context.Tarefas.Update(tarefa);
         }
 
-        public async Task<IEnumerable<Tarefa>> ObterTodos()
+        public async Task<Tarefa> ObterPorId(Guid id)
         {
-            return await context.Tarefas.AsNoTracking().ToListAsync();
+            return await context.Tarefas.FindAsync(id);
+        }
+
+        public IEnumerable<Tarefa> ObterTodos(Guid id, DateTime dataConclusao)
+        {
+            return context.Tarefas.Where(x => x.UsuarioId == id && x.Estimado.Date.Equals(dataConclusao));
         }
 
         public void Dispose()

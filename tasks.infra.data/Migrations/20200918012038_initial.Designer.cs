@@ -10,8 +10,8 @@ using tasks.infra.data;
 namespace tasks.infra.data.Migrations
 {
     [DbContext(typeof(TarefaContext))]
-    [Migration("20200911200520_FKCliente")]
-    partial class FKCliente
+    [Migration("20200918012038_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

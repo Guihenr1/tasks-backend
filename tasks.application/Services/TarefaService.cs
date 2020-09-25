@@ -7,7 +7,6 @@ using tasks.application.Interfaces;
 using tasks.domain.Entities;
 using tasks.domain.Interfaces;
 using tasks.domain.ViewModels;
-using tasks.domain.ViewModels.Validacao;
 
 namespace tasks.application.Services
 {
@@ -23,9 +22,9 @@ namespace tasks.application.Services
             this.tarefaRepository = tarefaRepository;
         }
 
-        public async Task<IEnumerable<TarefaResponseViewModel>> ObterTodos()
+        public IEnumerable<TarefaResponseViewModel> ObterTodos(Guid id, DateTime dataConclusao)
         {
-            var result = await tarefaRepository.ObterTodos();
+            var result = tarefaRepository.ObterTodos(id, dataConclusao);
             return mapper.ProjectTo<TarefaResponseViewModel>(result.AsQueryable());
         }
 
@@ -47,17 +46,19 @@ namespace tasks.application.Services
             return await tarefaRepository.UnitOfWork.Commit();
         }
 
-        public async Task<bool> Fechar(FecharTarefaRequestViewModel tarefa)
+        public async Task<bool> Alternar(Guid id)
         {
-            if(!tarefa.EhValido())
-                return false;
-                
-            var tarefaConcluida = mapper.Map<Tarefa>(tarefa);
-            tarefaConcluida.Fechar();
+            var tarefa = await ObterPorId(id);
+            if (tarefa == null) throw new Exception("Tarefa não encontrada");
 
-            tarefaRepository.Fechar(tarefaConcluida);
+            tarefa.Alternar();
+
+            tarefaRepository.Alternar(tarefa);
             return await tarefaRepository.UnitOfWork.Commit();
         }
+
+        private async Task<Tarefa> ObterPorId(Guid id) => 
+            await tarefaRepository.ObterPorId(id);
 
         public void Dispose()
         {

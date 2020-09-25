@@ -22,19 +22,21 @@ namespace tasks.test
         }
 
         [Fact(DisplayName = "Obter Todos - Deve retornar uma lista")]
-        public async Task ObterTodos_DeveRetornarUmaLista()
+        public void ObterTodos_DeveRetornarUmaLista()
         {
             // Arrange
             IEnumerable<Tarefa> lista = new List<Tarefa>(){
                 new Tarefa(Guid.NewGuid(), "tarefa", DateTime.Now, Guid.NewGuid())
             };
+            var clientId = Guid.NewGuid();
+            var data = DateTime.Now;
         
             // Act
             var mock = new Mock<ITarefaRepository>();
-            mock.Setup(t => t.ObterTodos()).Returns(Task.FromResult(lista));
+            mock.Setup(t => t.ObterTodos(clientId, data)).Returns(lista);
 
             var service = new TarefaService(mock.Object, _mapper.Object);
-            await service.ObterTodos();
+            service.ObterTodos(clientId, data);
         
             // Assert
             mock.VerifyAll();
@@ -82,49 +84,37 @@ namespace tasks.test
             Assert.True(adicionar);
         }
 
-        [Fact(DisplayName = "Fechar Tarefa - Dados inválidos")]
-        public async Task FecharTarefa_Validacao_DeveDarErro()
+        [Fact(DisplayName = "Alternar status tarefa - Tarefa não encontrada")]
+        public void AlternarStatusTarefa_TarefaNaoEncontrada_DeveDarErro()
         {
-            // Arrange
-            var tarefa = new FecharTarefaRequestViewModel{
-                Descricao = "",
-                Estimado = DateTime.MinValue,
-                Id = Guid.Empty
-            };
-        
             // Act
-            var service = new TarefaService(_mock.Object, _mapper.Object);
-            var fechar = await service.Fechar(tarefa);
+            var mock = new Mock<ITarefaRepository>();
+            mock.Setup(x => x.ObterPorId(Guid.NewGuid())).Returns<object>(null);
+
+            var service = new TarefaService(mock.Object, _mapper.Object);
         
             // Assert
-            Assert.False(fechar);
-            Assert.False(tarefa.ValidationResult.IsValid);
-            Assert.Equal(tarefa.ValidationResult.Errors.Count, 3);
+            Assert.ThrowsAsync<Exception>(() => service.Alternar(Guid.NewGuid()));
         }
 
-        [Fact(DisplayName = "Fechar Tarefa - Fechar tarefa com sucesso")]
-        public async Task FecharTarefa_FecharTarefaComSucesso()
+        [Fact(DisplayName = "Alternar Status Tarefa - Alternar status com sucesso")]
+        public async Task AlternarStatusTarefa_AlternarTarefaComSucesso()
         {
             // Arrange
-            var tarefaViewModel = new FecharTarefaRequestViewModel{
-                Descricao = "xxx",
-                Estimado = DateTime.Now.AddDays(1),
-                Id = Guid.NewGuid()
-            };
+            var id = Guid.NewGuid();
             var tarefa = new Tarefa(Guid.NewGuid(), "xxx", DateTime.Now, Guid.NewGuid());
         
             // Act
             var mock = new Mock<ITarefaRepository>();
-            var mapper = new Mock<IMapper>();
-            mapper.Setup(c => c.Map<Tarefa>(tarefaViewModel)).Returns(tarefa);
-            mock.Setup(c => c.Fechar(tarefa));
+            mock.Setup(x => x.ObterPorId(id)).Returns(Task.FromResult(tarefa));
+            mock.Setup(c => c.Alternar(tarefa));
             mock.Setup(c => c.UnitOfWork.Commit()).Returns(Task.FromResult(true));
 
-            var service = new TarefaService(mock.Object, mapper.Object);
-            var fechar = await service.Fechar(tarefaViewModel);
+            var service = new TarefaService(mock.Object, _mapper.Object);
+            var alternar = await service.Alternar(id);
         
             // Assert
-            Assert.True(fechar);
+            Assert.True(alternar);
         }
     }
 }

@@ -7,8 +7,9 @@ namespace tasks.domain.Interfaces
 {
     public interface ITarefaRepository : IRepository<Tarefa>
     {
-        Task<IEnumerable<Tarefa>> ObterTodos();
+        IEnumerable<Tarefa> ObterTodos(Guid id, DateTime dataConclusao);
         void Adicionar(Tarefa tarefa);
-        void Fechar(Tarefa tarefa);
+        void Alternar(Tarefa tarefa);
+        Task<Tarefa> ObterPorId(Guid id);
     }
 }
