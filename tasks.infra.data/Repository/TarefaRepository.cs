@@ -42,6 +42,11 @@ namespace tasks.infra.data.Repository
             context?.Dispose();
         }
 
+        public void Remover(Tarefa tarefa)
+        {
+            context.Tarefas.Remove(tarefa);
+        }
+
         public IUnitOfWork UnitOfWork => context;
     }
 }

@@ -116,5 +116,60 @@ namespace tasks.test
             // Assert
             Assert.True(alternar);
         }
+
+        [Fact(DisplayName = "Remover tarefa - Tarefa não encontrada")]
+        public void ExcluirTarefa_TarefaNaoEncontrada_DeveDarErro()
+        {
+            // Arrange
+            var tarefaId = Guid.NewGuid();
+            var usuarioId = Guid.NewGuid();
+
+            // Act
+            var mock = new Mock<ITarefaRepository>();
+            mock.Setup(x => x.ObterPorId(tarefaId)).Returns<object>(null);
+
+            var service = new TarefaService(mock.Object, _mapper.Object);
+        
+            // Assert
+            Assert.ThrowsAsync<Exception>(() => service.Remover(tarefaId, usuarioId));
+        }
+
+        [Fact(DisplayName = "Remover tarefa - Tarefa não perternce ao usuario")]
+        public void ExcluirTarefa_TarefaNaoPertenceUsuario_DeveDarErro()
+        {
+            // Arrange
+            var tarefaId = Guid.NewGuid();
+            var usuarioId = Guid.NewGuid();
+            var tarefa = new Tarefa(tarefaId, "xxx", DateTime.Now, Guid.NewGuid());
+
+            // Act
+            var mock = new Mock<ITarefaRepository>();
+            mock.Setup(x => x.ObterPorId(tarefaId)).Returns(Task.FromResult(tarefa));
+
+            var service = new TarefaService(mock.Object, _mapper.Object);
+        
+            // Assert
+            Assert.ThrowsAsync<Exception>(() => service.Remover(tarefaId, usuarioId));
+        }
+
+        [Fact(DisplayName = "Remover tarefa - Tarefa removida com sucesso")]
+        public async Task ExcluirTarefa_TarefaRemovidaComSucesso()
+        {
+            // Arrange
+            var tarefaId = Guid.NewGuid();
+            var usuarioId = Guid.NewGuid();
+            var tarefa = new Tarefa(tarefaId, "xxx", DateTime.Now, usuarioId);
+
+            // Act
+            var mock = new Mock<ITarefaRepository>();
+            mock.Setup(x => x.ObterPorId(tarefaId)).Returns(Task.FromResult(tarefa));
+            mock.Setup(c => c.UnitOfWork.Commit()).Returns(Task.FromResult(true));
+
+            var service = new TarefaService(mock.Object, _mapper.Object);
+            var remover = await service.Remover(tarefaId, usuarioId);
+        
+            // Assert
+            Assert.True(remover);
+        }
     }
 }

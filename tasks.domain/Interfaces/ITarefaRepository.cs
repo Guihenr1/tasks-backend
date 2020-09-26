@@ -11,5 +11,6 @@ namespace tasks.domain.Interfaces
         void Adicionar(Tarefa tarefa);
         void Alternar(Tarefa tarefa);
         Task<Tarefa> ObterPorId(Guid id);
+        void Remover(Tarefa tarefa);
     }
 }

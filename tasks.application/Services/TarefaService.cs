@@ -57,6 +57,16 @@ namespace tasks.application.Services
             return await tarefaRepository.UnitOfWork.Commit();
         }
 
+        public async Task<bool> Remover(Guid id, Guid usuarioId)
+        {
+            var tarefa = await ObterPorId(id);
+            if (tarefa == null || !tarefa.UsuarioId.Equals(usuarioId)) 
+                throw new Exception("Tarefa não encontrada");
+
+            tarefaRepository.Remover(tarefa);
+            return await tarefaRepository.UnitOfWork.Commit();
+        }
+
         private async Task<Tarefa> ObterPorId(Guid id) => 
             await tarefaRepository.ObterPorId(id);
 

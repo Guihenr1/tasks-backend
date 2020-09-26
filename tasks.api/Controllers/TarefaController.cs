@@ -56,13 +56,31 @@ namespace tasks.api.Controllers
             return NoContent();
         }
 
-        [HttpGet("{idTarefa}")]
+        [HttpGet("alternar/{idTarefa}")]
         [Authorize]
         public async Task<IActionResult> Alternar(Guid idTarefa)
         {
             try
             {
                 var result = await tarefaService.Alternar(idTarefa);
+                if (result == false) CreateErrorResponse("Não foi possível alterar", 404);
+            }
+            catch (Exception ex)
+            {                
+                return CreateServerErrorResponse(ex, null);
+            }
+
+            return NoContent();
+        }
+
+        [HttpGet("remover/{idTarefa}")]
+        [Authorize]
+        public async Task<IActionResult> Remover(Guid idTarefa)
+        {
+            try
+            {
+                var result = await tarefaService.Remover(idTarefa, GetUserId());
+                if (result == false) CreateErrorResponse("Não foi possível remover", 404);
             }
             catch (Exception ex)
             {                

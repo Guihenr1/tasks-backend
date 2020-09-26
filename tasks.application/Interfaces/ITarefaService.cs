@@ -10,5 +10,6 @@ namespace tasks.application.Interfaces
         Task<bool> Adicionar(TarefaRequestViewModel tarefa, Guid userId);  
         Task<bool> Alternar(Guid id); 
         IEnumerable<TarefaResponseViewModel> ObterTodos(Guid usuarioId, DateTime dataConclusao);
+        Task<bool> Remover(Guid id, Guid usuarioId);
     }
 }
