@@ -34,7 +34,11 @@ namespace tasks.infra.data.Repository
 
         public IEnumerable<Tarefa> ObterTodos(Guid id, DateTime dataConclusao)
         {
-            return context.Tarefas.Where(x => x.UsuarioId == id && x.Estimado.Date.Equals(dataConclusao));
+            return context.Tarefas.Where
+            (
+                x => x.UsuarioId == id && 
+                (x.Estimado.Date <= dataConclusao.Date && x.Estimado.Date >= DateTime.Now.Date)
+            );
         }
 
         public void Dispose()
