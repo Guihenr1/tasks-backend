@@ -126,7 +126,7 @@ namespace tasks.test
 
             // Act
             var mock = new Mock<ITarefaRepository>();
-            mock.Setup(x => x.ObterPorId(tarefaId)).Returns<object>(null);
+            mock.Setup(x => x.ObterPorId(tarefaId)).Returns(Task.FromResult<Tarefa>(null));
 
             var service = new TarefaService(mock.Object, _mapper.Object);
         

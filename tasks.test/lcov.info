@@ -1,0 +1,614 @@
+SF:/media/guilherme/C2ACF5C6ACF5B54F/React/tasks-backend/tasks.application/Services/SecurityService.cs
+FN:14,System.String tasks.application.Services.SecurityService::gerarJwtToken(tasks.domain.DTOs.UsuarioDto)
+FNDA:0,System.String tasks.application.Services.SecurityService::gerarJwtToken(tasks.domain.DTOs.UsuarioDto)
+DA:15,0
+DA:16,0
+DA:17,0
+DA:18,0
+DA:19,0
+DA:20,0
+DA:21,0
+DA:22,0
+DA:23,0
+DA:24,0
+DA:25,0
+DA:26,0
+DA:28,0
+DA:29,0
+DA:30,0
+LF:15
+LH:0
+BRF:0
+BRH:0
+FNF:1
+FNH:0
+end_of_record
+SF:/media/guilherme/C2ACF5C6ACF5B54F/React/tasks-backend/tasks.application/Services/TarefaService.cs
+FN:25,System.Collections.Generic.IEnumerable`1<tasks.domain.ViewModels.TarefaResponseViewModel> tasks.application.Services.TarefaService::ObterTodos(System.Guid,System.DateTime)
+FNDA:1,System.Collections.Generic.IEnumerable`1<tasks.domain.ViewModels.TarefaResponseViewModel> tasks.application.Services.TarefaService::ObterTodos(System.Guid,System.DateTime)
+DA:26,1
+DA:27,1
+DA:28,1
+DA:29,1
+FN:73,System.Void tasks.application.Services.TarefaService::Dispose()
+FNDA:0,System.Void tasks.application.Services.TarefaService::Dispose()
+DA:74,0
+DA:75,0
+DA:76,0
+FN:16,System.Void tasks.application.Services.TarefaService::.ctor(tasks.domain.Interfaces.ITarefaRepository,AutoMapper.IMapper)
+FNDA:9,System.Void tasks.application.Services.TarefaService::.ctor(tasks.domain.Interfaces.ITarefaRepository,AutoMapper.IMapper)
+DA:17,9
+DA:18,9
+DA:19,9
+DA:20,9
+DA:21,9
+DA:22,9
+DA:23,9
+FN:31,System.Void tasks.application.Services.TarefaService/<Adicionar>d__4::MoveNext()
+FNDA:3,System.Void tasks.application.Services.TarefaService/<Adicionar>d__4::MoveNext()
+DA:32,3
+DA:33,3
+DA:34,2
+DA:36,1
+DA:37,1
+DA:38,1
+DA:39,1
+DA:40,1
+DA:41,1
+DA:43,1
+DA:45,1
+DA:46,1
+DA:47,3
+BRDA:33,34,0,2
+BRDA:33,34,1,1
+FN:49,System.Void tasks.application.Services.TarefaService/<Alternar>d__5::MoveNext()
+FNDA:2,System.Void tasks.application.Services.TarefaService/<Alternar>d__5::MoveNext()
+DA:50,2
+DA:51,2
+DA:52,3
+DA:54,1
+DA:56,1
+DA:57,1
+DA:58,1
+BRDA:52,173,0,1
+BRDA:52,173,1,1
+FN:60,System.Void tasks.application.Services.TarefaService/<Remover>d__6::MoveNext()
+FNDA:3,System.Void tasks.application.Services.TarefaService/<Remover>d__6::MoveNext()
+DA:61,3
+DA:62,3
+DA:63,3
+DA:64,2
+DA:66,1
+DA:67,1
+DA:68,1
+BRDA:63,169,0,2
+BRDA:63,169,1,1
+BRDA:63,207,0,2
+BRDA:63,207,1,1
+FN:70,System.Void tasks.application.Services.TarefaService/<ObterPorId>d__7::MoveNext()
+FNDA:5,System.Void tasks.application.Services.TarefaService/<ObterPorId>d__7::MoveNext()
+DA:71,5
+LF:42
+LH:39
+BRF:8
+BRH:8
+FNF:7
+FNH:6
+end_of_record
+SF:/media/guilherme/C2ACF5C6ACF5B54F/React/tasks-backend/tasks.application/Services/UsuarioService.cs
+FN:61,System.Void tasks.application.Services.UsuarioService::Dispose()
+FNDA:0,System.Void tasks.application.Services.UsuarioService::Dispose()
+DA:62,0
+DA:63,0
+DA:64,0
+FN:21,System.Void tasks.application.Services.UsuarioService::.ctor(AutoMapper.IMapper,tasks.domain.Interfaces.IUsuarioRepository,tasks.application.Interfaces.ISecurityService)
+FNDA:9,System.Void tasks.application.Services.UsuarioService::.ctor(AutoMapper.IMapper,tasks.domain.Interfaces.IUsuarioRepository,tasks.application.Interfaces.ISecurityService)
+DA:22,9
+DA:23,9
+DA:24,9
+DA:25,9
+DA:26,9
+DA:27,9
+DA:28,9
+DA:29,9
+FN:31,System.Void tasks.application.Services.UsuarioService/<ObterPorId>d__4::MoveNext()
+FNDA:1,System.Void tasks.application.Services.UsuarioService/<ObterPorId>d__4::MoveNext()
+DA:32,1
+DA:33,1
+DA:34,1
+FN:36,System.Void tasks.application.Services.UsuarioService/<Adicionar>d__5::MoveNext()
+FNDA:3,System.Void tasks.application.Services.UsuarioService/<Adicionar>d__5::MoveNext()
+DA:37,3
+DA:38,5
+DA:40,1
+DA:41,1
+DA:42,3
+BRDA:38,42,0,2
+BRDA:38,42,1,1
+FN:44,System.Void tasks.application.Services.UsuarioService/<Autenticar>d__6::MoveNext()
+FNDA:5,System.Void tasks.application.Services.UsuarioService/<Autenticar>d__6::MoveNext()
+DA:45,5
+DA:47,8
+DA:49,2
+DA:50,2
+DA:51,2
+DA:53,3
+DA:55,1
+DA:56,1
+DA:58,1
+DA:59,5
+BRDA:47,31,0,3
+BRDA:47,31,1,2
+BRDA:53,209,0,1
+BRDA:53,209,1,1
+LF:29
+LH:26
+BRF:6
+BRH:6
+FNF:5
+FNH:4
+end_of_record
+SF:/media/guilherme/C2ACF5C6ACF5B54F/React/tasks-backend/tasks.application/AutoMapper/AutoMapperConfig.cs
+FN:7,AutoMapper.MapperConfiguration tasks.application.AutoMapper.AutoMapperConfig::RegisterMappings()
+FNDA:0,AutoMapper.MapperConfiguration tasks.application.AutoMapper.AutoMapperConfig::RegisterMappings()
+DA:8,0
+DA:10,0
+DA:11,0
+DA:12,0
+DA:13,0
+DA:14,0
+DA:15,0
+LF:7
+LH:0
+BRF:0
+BRH:0
+FNF:1
+FNH:0
+end_of_record
+SF:/media/guilherme/C2ACF5C6ACF5B54F/React/tasks-backend/tasks.application/AutoMapper/DomainToDTOMappingProfile.cs
+FN:8,System.Void tasks.application.AutoMapper.DomainToDTOMappingProfile::.ctor()
+FNDA:0,System.Void tasks.application.AutoMapper.DomainToDTOMappingProfile::.ctor()
+DA:9,0
+DA:10,0
+DA:11,0
+DA:12,0
+DA:13,0
+LF:5
+LH:0
+BRF:0
+BRH:0
+FNF:1
+FNH:0
+end_of_record
+SF:/media/guilherme/C2ACF5C6ACF5B54F/React/tasks-backend/tasks.application/AutoMapper/DTOMappingProfileToDomain.cs
+FN:8,System.Void tasks.application.AutoMapper.DTOMappingProfileToDomain::.ctor()
+FNDA:0,System.Void tasks.application.AutoMapper.DTOMappingProfileToDomain::.ctor()
+DA:9,0
+DA:10,0
+DA:11,0
+DA:12,0
+DA:13,0
+DA:14,0
+DA:15,0
+LF:7
+LH:0
+BRF:0
+BRH:0
+FNF:1
+FNH:0
+end_of_record
+SF:/media/guilherme/C2ACF5C6ACF5B54F/React/tasks-backend/tasks.core/Utils/ResourceMessages.cs
+FN:4,System.String tasks.core.Utils.ResourceMessages::get_LOGIN_INCORRETO()
+FNDA:0,System.String tasks.core.Utils.ResourceMessages::get_LOGIN_INCORRETO()
+DA:5,0
+LF:1
+LH:0
+BRF:0
+BRH:0
+FNF:1
+FNH:0
+end_of_record
+SF:/media/guilherme/C2ACF5C6ACF5B54F/React/tasks-backend/tasks.domain/ViewModels/AdicionarUsuarioViewModel.cs
+FN:6,System.String tasks.domain.ViewModels.AdicionarUsuarioViewModel::get_Nome()
+FNDA:13,System.String tasks.domain.ViewModels.AdicionarUsuarioViewModel::get_Nome()
+DA:7,13
+FN:7,System.String tasks.domain.ViewModels.AdicionarUsuarioViewModel::get_Email()
+FNDA:19,System.String tasks.domain.ViewModels.AdicionarUsuarioViewModel::get_Email()
+DA:8,19
+FN:8,System.String tasks.domain.ViewModels.AdicionarUsuarioViewModel::get_Senha()
+FNDA:13,System.String tasks.domain.ViewModels.AdicionarUsuarioViewModel::get_Senha()
+DA:9,13
+FN:11,System.Boolean tasks.domain.ViewModels.AdicionarUsuarioViewModel::EhValido()
+FNDA:4,System.Boolean tasks.domain.ViewModels.AdicionarUsuarioViewModel::EhValido()
+DA:12,4
+DA:13,4
+DA:14,4
+DA:15,4
+LF:7
+LH:7
+BRF:0
+BRH:0
+FNF:4
+FNH:4
+end_of_record
+SF:/media/guilherme/C2ACF5C6ACF5B54F/React/tasks-backend/tasks.domain/ViewModels/AutenticacaoRequisicaoViewModel.cs
+FN:6,System.String tasks.domain.ViewModels.AutenticacaoRequisicaoViewModel::get_Email()
+FNDA:24,System.String tasks.domain.ViewModels.AutenticacaoRequisicaoViewModel::get_Email()
+DA:7,24
+FN:7,System.String tasks.domain.ViewModels.AutenticacaoRequisicaoViewModel::get_Senha()
+FNDA:19,System.String tasks.domain.ViewModels.AutenticacaoRequisicaoViewModel::get_Senha()
+DA:8,19
+FN:10,System.Boolean tasks.domain.ViewModels.AutenticacaoRequisicaoViewModel::EhValido()
+FNDA:5,System.Boolean tasks.domain.ViewModels.AutenticacaoRequisicaoViewModel::EhValido()
+DA:11,5
+DA:12,5
+DA:13,5
+DA:14,5
+LF:6
+LH:6
+BRF:0
+BRH:0
+FNF:3
+FNH:3
+end_of_record
+SF:/media/guilherme/C2ACF5C6ACF5B54F/React/tasks-backend/tasks.domain/ViewModels/AutenticacaoRespostaViewModel.cs
+FN:7,System.Guid tasks.domain.ViewModels.AutenticacaoRespostaViewModel::get_Id()
+FNDA:0,System.Guid tasks.domain.ViewModels.AutenticacaoRespostaViewModel::get_Id()
+DA:8,0
+FN:8,System.String tasks.domain.ViewModels.AutenticacaoRespostaViewModel::get_Nome()
+FNDA:0,System.String tasks.domain.ViewModels.AutenticacaoRespostaViewModel::get_Nome()
+DA:9,0
+FN:9,System.String tasks.domain.ViewModels.AutenticacaoRespostaViewModel::get_Email()
+FNDA:0,System.String tasks.domain.ViewModels.AutenticacaoRespostaViewModel::get_Email()
+DA:10,0
+FN:10,System.String tasks.domain.ViewModels.AutenticacaoRespostaViewModel::get_Token()
+FNDA:0,System.String tasks.domain.ViewModels.AutenticacaoRespostaViewModel::get_Token()
+DA:11,0
+LF:4
+LH:0
+BRF:0
+BRH:0
+FNF:4
+FNH:0
+end_of_record
+SF:/media/guilherme/C2ACF5C6ACF5B54F/React/tasks-backend/tasks.domain/ViewModels/TarefaRequestViewModel.cs
+FN:8,System.String tasks.domain.ViewModels.TarefaRequestViewModel::get_Descricao()
+FNDA:16,System.String tasks.domain.ViewModels.TarefaRequestViewModel::get_Descricao()
+DA:9,16
+FN:9,System.DateTime tasks.domain.ViewModels.TarefaRequestViewModel::get_Estimado()
+FNDA:13,System.DateTime tasks.domain.ViewModels.TarefaRequestViewModel::get_Estimado()
+DA:10,13
+FN:12,System.Boolean tasks.domain.ViewModels.TarefaRequestViewModel::EhValido()
+FNDA:3,System.Boolean tasks.domain.ViewModels.TarefaRequestViewModel::EhValido()
+DA:13,3
+DA:14,3
+DA:15,3
+DA:16,3
+LF:6
+LH:6
+BRF:0
+BRH:0
+FNF:3
+FNH:3
+end_of_record
+SF:/media/guilherme/C2ACF5C6ACF5B54F/React/tasks-backend/tasks.domain/ViewModels/TarefaResponseViewModel.cs
+FN:6,System.Guid tasks.domain.ViewModels.TarefaResponseViewModel::get_Id()
+FNDA:0,System.Guid tasks.domain.ViewModels.TarefaResponseViewModel::get_Id()
+DA:7,0
+FN:7,System.String tasks.domain.ViewModels.TarefaResponseViewModel::get_Descricao()
+FNDA:0,System.String tasks.domain.ViewModels.TarefaResponseViewModel::get_Descricao()
+DA:8,0
+FN:8,System.DateTime tasks.domain.ViewModels.TarefaResponseViewModel::get_Estimado()
+FNDA:0,System.DateTime tasks.domain.ViewModels.TarefaResponseViewModel::get_Estimado()
+DA:9,0
+FN:9,System.Nullable`1<System.DateTime> tasks.domain.ViewModels.TarefaResponseViewModel::get_Concluido()
+FNDA:0,System.Nullable`1<System.DateTime> tasks.domain.ViewModels.TarefaResponseViewModel::get_Concluido()
+DA:10,0
+FN:10,System.String tasks.domain.ViewModels.TarefaResponseViewModel::get_Status()
+FNDA:0,System.String tasks.domain.ViewModels.TarefaResponseViewModel::get_Status()
+DA:11,0
+LF:5
+LH:0
+BRF:0
+BRH:0
+FNF:5
+FNH:0
+end_of_record
+SF:/media/guilherme/C2ACF5C6ACF5B54F/React/tasks-backend/tasks.domain/ViewModels/Validation.cs
+FN:7,FluentValidation.Results.ValidationResult tasks.domain.ViewModels.Validation::get_ValidationResult()
+FNDA:41,FluentValidation.Results.ValidationResult tasks.domain.ViewModels.Validation::get_ValidationResult()
+DA:8,41
+FN:13,System.Boolean tasks.domain.ViewModels.Validation::EhValido()
+FNDA:0,System.Boolean tasks.domain.ViewModels.Validation::EhValido()
+DA:14,0
+DA:15,0
+FN:8,System.Void tasks.domain.ViewModels.Validation::.ctor()
+FNDA:11,System.Void tasks.domain.ViewModels.Validation::.ctor()
+DA:9,11
+DA:10,11
+DA:11,11
+DA:12,11
+LF:7
+LH:5
+BRF:0
+BRH:0
+FNF:3
+FNH:2
+end_of_record
+SF:/media/guilherme/C2ACF5C6ACF5B54F/React/tasks-backend/tasks.domain/ViewModels/Validacao/AdicionarUsuarioViewModelValidacao.cs
+FN:6,System.Void tasks.domain.ViewModels.Validacao.AdicionarUsuarioViewModelValidacao::.ctor()
+FNDA:4,System.Void tasks.domain.ViewModels.Validacao.AdicionarUsuarioViewModelValidacao::.ctor()
+DA:7,4
+DA:8,4
+DA:9,4
+DA:10,4
+DA:11,4
+DA:13,4
+DA:14,4
+DA:15,4
+DA:17,4
+DA:18,4
+DA:19,4
+DA:20,4
+LF:12
+LH:12
+BRF:0
+BRH:0
+FNF:1
+FNH:1
+end_of_record
+SF:/media/guilherme/C2ACF5C6ACF5B54F/React/tasks-backend/tasks.domain/ViewModels/Validacao/AutenticacaoRequisicaoViewModelValidacao.cs
+FN:6,System.Void tasks.domain.ViewModels.Validacao.AutenticacaoRequisicaoViewModelValidacao::.ctor()
+FNDA:5,System.Void tasks.domain.ViewModels.Validacao.AutenticacaoRequisicaoViewModelValidacao::.ctor()
+DA:7,5
+DA:8,5
+DA:9,5
+DA:10,5
+DA:11,5
+DA:13,5
+DA:14,5
+DA:15,5
+DA:16,5
+LF:9
+LH:9
+BRF:0
+BRH:0
+FNF:1
+FNH:1
+end_of_record
+SF:/media/guilherme/C2ACF5C6ACF5B54F/React/tasks-backend/tasks.domain/ViewModels/Validacao/TarefaValidacao.cs
+FN:7,System.String tasks.domain.ViewModels.Validacao.TarefaValidacao::get_DescricaoErroMsg()
+FNDA:3,System.String tasks.domain.ViewModels.Validacao.TarefaValidacao::get_DescricaoErroMsg()
+DA:8,3
+FN:8,System.String tasks.domain.ViewModels.Validacao.TarefaValidacao::get_EstimadoErroMsg()
+FNDA:3,System.String tasks.domain.ViewModels.Validacao.TarefaValidacao::get_EstimadoErroMsg()
+DA:9,3
+FN:10,System.Void tasks.domain.ViewModels.Validacao.TarefaValidacao::.ctor()
+FNDA:3,System.Void tasks.domain.ViewModels.Validacao.TarefaValidacao::.ctor()
+DA:11,3
+DA:12,3
+DA:13,3
+DA:14,3
+DA:15,3
+DA:17,3
+DA:18,3
+DA:19,3
+DA:20,3
+DA:21,3
+LF:12
+LH:12
+BRF:0
+BRH:0
+FNF:3
+FNH:3
+end_of_record
+SF:/media/guilherme/C2ACF5C6ACF5B54F/React/tasks-backend/tasks.domain/Entities/AppSettings.cs
+FN:4,System.Void tasks.domain.Entities.AppSettings::.cctor()
+FNDA:0,System.Void tasks.domain.Entities.AppSettings::.cctor()
+DA:5,0
+LF:1
+LH:0
+BRF:0
+BRH:0
+FNF:1
+FNH:0
+end_of_record
+SF:/media/guilherme/C2ACF5C6ACF5B54F/React/tasks-backend/tasks.domain/Entities/Entity.cs
+FN:6,System.Guid tasks.domain.Entities.Entity::get_Id()
+FNDA:24,System.Guid tasks.domain.Entities.Entity::get_Id()
+DA:7,24
+FN:14,System.Boolean tasks.domain.Entities.Entity::Equals(System.Object)
+FNDA:1,System.Boolean tasks.domain.Entities.Entity::Equals(System.Object)
+DA:15,1
+DA:16,1
+DA:18,0
+DA:19,0
+DA:21,1
+DA:22,1
+BRDA:18,14,0,0
+BRDA:18,14,1,1
+BRDA:19,26,0,0
+BRDA:19,26,1,1
+FN:24,System.Boolean tasks.domain.Entities.Entity::op_Equality(tasks.domain.Entities.Entity,tasks.domain.Entities.Entity)
+FNDA:7,System.Boolean tasks.domain.Entities.Entity::op_Equality(tasks.domain.Entities.Entity,tasks.domain.Entities.Entity)
+DA:25,7
+DA:26,7
+DA:27,3
+DA:29,4
+DA:30,4
+DA:32,0
+DA:33,7
+BRDA:26,2,0,3
+BRDA:26,2,1,4
+BRDA:26,13,0,3
+BRDA:26,13,1,4
+BRDA:29,20,0,4
+BRDA:29,20,1,0
+BRDA:29,31,0,4
+BRDA:29,31,1,0
+FN:35,System.Boolean tasks.domain.Entities.Entity::op_Inequality(tasks.domain.Entities.Entity,tasks.domain.Entities.Entity)
+FNDA:0,System.Boolean tasks.domain.Entities.Entity::op_Inequality(tasks.domain.Entities.Entity,tasks.domain.Entities.Entity)
+DA:36,0
+DA:37,0
+DA:38,0
+FN:40,System.Int32 tasks.domain.Entities.Entity::GetHashCode()
+FNDA:0,System.Int32 tasks.domain.Entities.Entity::GetHashCode()
+DA:41,0
+DA:42,0
+DA:43,0
+FN:45,System.String tasks.domain.Entities.Entity::ToString()
+FNDA:0,System.String tasks.domain.Entities.Entity::ToString()
+DA:46,0
+DA:47,0
+DA:48,0
+FN:8,System.Void tasks.domain.Entities.Entity::.ctor()
+FNDA:11,System.Void tasks.domain.Entities.Entity::.ctor()
+DA:9,11
+DA:10,11
+DA:11,11
+DA:12,11
+LF:27
+LH:15
+BRF:12
+BRH:8
+FNF:7
+FNH:4
+end_of_record
+SF:/media/guilherme/C2ACF5C6ACF5B54F/React/tasks-backend/tasks.domain/Entities/ErrorResponse.cs
+FN:7,System.Int32 tasks.domain.Entities.ErrorResponse::get_Status()
+FNDA:0,System.Int32 tasks.domain.Entities.ErrorResponse::get_Status()
+DA:8,0
+FN:8,System.String tasks.domain.Entities.ErrorResponse::get_Message()
+FNDA:0,System.String tasks.domain.Entities.ErrorResponse::get_Message()
+DA:9,0
+FN:9,System.Collections.Generic.IList`1<FluentValidation.Results.ValidationFailure> tasks.domain.Entities.ErrorResponse::get_Validation()
+FNDA:0,System.Collections.Generic.IList`1<FluentValidation.Results.ValidationFailure> tasks.domain.Entities.ErrorResponse::get_Validation()
+DA:10,0
+LF:3
+LH:0
+BRF:0
+BRH:0
+FNF:3
+FNH:0
+end_of_record
+SF:/media/guilherme/C2ACF5C6ACF5B54F/React/tasks-backend/tasks.domain/Entities/Tarefa.cs
+FN:8,System.String tasks.domain.Entities.Tarefa::get_Descricao()
+FNDA:0,System.String tasks.domain.Entities.Tarefa::get_Descricao()
+DA:9,0
+FN:9,tasks.domain.Enums.TarefaStatus tasks.domain.Entities.Tarefa::get_Status()
+FNDA:3,tasks.domain.Enums.TarefaStatus tasks.domain.Entities.Tarefa::get_Status()
+DA:10,3
+FN:10,System.DateTime tasks.domain.Entities.Tarefa::get_Estimado()
+FNDA:0,System.DateTime tasks.domain.Entities.Tarefa::get_Estimado()
+DA:11,0
+FN:11,System.Nullable`1<System.DateTime> tasks.domain.Entities.Tarefa::get_Concluido()
+FNDA:0,System.Nullable`1<System.DateTime> tasks.domain.Entities.Tarefa::get_Concluido()
+DA:12,0
+FN:12,System.DateTime tasks.domain.Entities.Tarefa::get_DataCadastro()
+FNDA:0,System.DateTime tasks.domain.Entities.Tarefa::get_DataCadastro()
+DA:13,0
+FN:13,System.Guid tasks.domain.Entities.Tarefa::get_UsuarioId()
+FNDA:8,System.Guid tasks.domain.Entities.Tarefa::get_UsuarioId()
+DA:14,8
+FN:14,tasks.domain.Entities.Usuario tasks.domain.Entities.Tarefa::get_Usuario()
+FNDA:0,tasks.domain.Entities.Usuario tasks.domain.Entities.Tarefa::get_Usuario()
+DA:15,0
+FN:27,System.Void tasks.domain.Entities.Tarefa::Alternar()
+FNDA:1,System.Void tasks.domain.Entities.Tarefa::Alternar()
+DA:28,1
+DA:29,0
+DA:30,0
+DA:31,0
+DA:32,0
+DA:33,1
+DA:34,1
+DA:35,1
+DA:36,1
+BRDA:29,25,0,0
+BRDA:29,25,1,1
+FN:36,System.Void tasks.domain.Entities.Tarefa::Criar()
+FNDA:1,System.Void tasks.domain.Entities.Tarefa::Criar()
+DA:37,1
+FN:16,System.Void tasks.domain.Entities.Tarefa::.ctor(System.Guid,System.String,System.DateTime,System.Guid)
+FNDA:6,System.Void tasks.domain.Entities.Tarefa::.ctor(System.Guid,System.String,System.DateTime,System.Guid)
+DA:17,6
+DA:18,6
+DA:19,6
+DA:20,6
+DA:21,6
+DA:22,6
+DA:23,6
+DA:24,6
+FN:25,System.Void tasks.domain.Entities.Tarefa::.ctor()
+FNDA:0,System.Void tasks.domain.Entities.Tarefa::.ctor()
+DA:26,0
+LF:26
+LH:16
+BRF:2
+BRH:1
+FNF:11
+FNH:5
+end_of_record
+SF:/media/guilherme/C2ACF5C6ACF5B54F/React/tasks-backend/tasks.domain/Entities/Usuario.cs
+FN:8,System.String tasks.domain.Entities.Usuario::get_Nome()
+FNDA:0,System.String tasks.domain.Entities.Usuario::get_Nome()
+DA:9,0
+FN:9,System.String tasks.domain.Entities.Usuario::get_Email()
+FNDA:0,System.String tasks.domain.Entities.Usuario::get_Email()
+DA:10,0
+FN:12,System.String tasks.domain.Entities.Usuario::get_Senha()
+FNDA:0,System.String tasks.domain.Entities.Usuario::get_Senha()
+DA:13,0
+FN:14,System.Void tasks.domain.Entities.Usuario::.ctor(System.Guid,System.String,System.String,System.String)
+FNDA:5,System.Void tasks.domain.Entities.Usuario::.ctor(System.Guid,System.String,System.String,System.String)
+DA:15,5
+DA:16,5
+DA:17,5
+DA:18,5
+DA:19,5
+DA:20,5
+DA:21,5
+LF:10
+LH:7
+BRF:0
+BRH:0
+FNF:4
+FNH:1
+end_of_record
+SF:/media/guilherme/C2ACF5C6ACF5B54F/React/tasks-backend/tasks.domain/DTOs/UsuarioDto.cs
+FN:6,System.Guid tasks.domain.DTOs.UsuarioDto::get_Id()
+FNDA:0,System.Guid tasks.domain.DTOs.UsuarioDto::get_Id()
+DA:7,0
+FN:7,System.String tasks.domain.DTOs.UsuarioDto::get_Nome()
+FNDA:0,System.String tasks.domain.DTOs.UsuarioDto::get_Nome()
+DA:8,0
+FN:8,System.String tasks.domain.DTOs.UsuarioDto::get_Email()
+FNDA:0,System.String tasks.domain.DTOs.UsuarioDto::get_Email()
+DA:9,0
+LF:3
+LH:0
+BRF:0
+BRH:0
+FNF:3
+FNH:0
+end_of_record
+SF:/media/guilherme/C2ACF5C6ACF5B54F/React/tasks-backend/tasks.domain/DomainObjects/DomainException.cs
+FN:6,System.Void tasks.domain.DomainException.DomainException::.ctor()
+FNDA:0,System.Void tasks.domain.DomainException.DomainException::.ctor()
+DA:7,0
+DA:8,0
+FN:9,System.Void tasks.domain.DomainException.DomainException::.ctor(System.String)
+FNDA:0,System.Void tasks.domain.DomainException.DomainException::.ctor(System.String)
+DA:10,0
+DA:11,0
+FN:12,System.Void tasks.domain.DomainException.DomainException::.ctor(System.String,System.Exception)
+FNDA:0,System.Void tasks.domain.DomainException.DomainException::.ctor(System.String,System.Exception)
+DA:13,0
+DA:14,0
+LF:6
+LH:0
+BRF:0
+BRH:0
+FNF:3
+FNH:0
+end_of_record

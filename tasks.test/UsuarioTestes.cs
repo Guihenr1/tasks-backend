@@ -110,7 +110,7 @@ namespace tasks.test
             Assert.False(autenticacao.ValidationResult.IsValid);
         }
 
-        [Fact(DisplayName = "Autenticar Usuario - Usuario não encontrado")]
+        [Fact(DisplayName = "Autenticar Usuario - Usuario invalido")]
         public async Task AutenticarUsuario_UsuarioInvalido_RetornarNull()
         {
             // Arrange
@@ -124,14 +124,37 @@ namespace tasks.test
             mock.Setup(c => c.ObterPorEmailESenha(autenticacao)).Returns(Task.FromResult<Usuario>(null));
 
             var service = new UsuarioService(mapper.Object, mock.Object, _mockSecurity.Object);
-            var adicionar = await service.Autenticar(autenticacaoViewModel);
+            var autenticar = await service.Autenticar(autenticacaoViewModel);
         
             // Assert
-            Assert.Null(adicionar);
+            Assert.Null(autenticar);
+        }
+
+        [Fact(DisplayName = "Autenticar Usuario - Usuario não encontrado")]
+        public async Task AutenticarUsuario_UsuarioNaoEncontrado_RetornarNull()
+        {
+            // Arrange
+            var autenticacaoViewModel = new AutenticacaoRequisicaoViewModel(){
+                Email="xxxxx@gmail.com",
+                Senha="12345678"
+            };
+            var autenticacao = new Usuario(Guid.NewGuid(), "Guilherme", "xxxx@gmail.com", "123456");
+        
+            // Act
+            var mapper = new Mock<IMapper>();
+            var mock = new Mock<IUsuarioRepository>();
+            mapper.Setup(c => c.Map<Usuario>(autenticacaoViewModel)).Returns(autenticacao);
+            mock.Setup(c => c.ObterPorEmailESenha(autenticacao)).Returns(Task.FromResult<Usuario>(null));
+
+            var service = new UsuarioService(mapper.Object, mock.Object, _mockSecurity.Object);
+            var autenticar = await service.Autenticar(autenticacaoViewModel);
+        
+            // Assert
+            Assert.Null(autenticar);
         }
 
         [Fact(DisplayName = "Autenticar Usuario - Usuario autenticado")]
-        public async Task Trocar_Nome_Metodo()
+        public async Task AutenticarUsuario_AutenticadoComSucesso()
         {
             // Arrange
             var autenticacaoViewModel = new AutenticacaoRequisicaoViewModel{

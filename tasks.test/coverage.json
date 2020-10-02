@@ -1,0 +1,976 @@
+{
+  "tasks.application.dll": {
+    "/media/guilherme/C2ACF5C6ACF5B54F/React/tasks-backend/tasks.application/Services/SecurityService.cs": {
+      "tasks.application.Services.SecurityService": {
+        "System.String tasks.application.Services.SecurityService::gerarJwtToken(tasks.domain.DTOs.UsuarioDto)": {
+          "Lines": {
+            "15": 0,
+            "16": 0,
+            "17": 0,
+            "18": 0,
+            "19": 0,
+            "20": 0,
+            "21": 0,
+            "22": 0,
+            "23": 0,
+            "24": 0,
+            "25": 0,
+            "26": 0,
+            "28": 0,
+            "29": 0,
+            "30": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/media/guilherme/C2ACF5C6ACF5B54F/React/tasks-backend/tasks.application/Services/TarefaService.cs": {
+      "tasks.application.Services.TarefaService": {
+        "System.Collections.Generic.IEnumerable`1<tasks.domain.ViewModels.TarefaResponseViewModel> tasks.application.Services.TarefaService::ObterTodos(System.Guid,System.DateTime)": {
+          "Lines": {
+            "26": 1,
+            "27": 1,
+            "28": 1,
+            "29": 1
+          },
+          "Branches": []
+        },
+        "System.Void tasks.application.Services.TarefaService::Dispose()": {
+          "Lines": {
+            "74": 0,
+            "75": 0,
+            "76": 0
+          },
+          "Branches": []
+        },
+        "System.Void tasks.application.Services.TarefaService::.ctor(tasks.domain.Interfaces.ITarefaRepository,AutoMapper.IMapper)": {
+          "Lines": {
+            "17": 9,
+            "18": 9,
+            "19": 9,
+            "20": 9,
+            "21": 9,
+            "22": 9,
+            "23": 9
+          },
+          "Branches": []
+        }
+      },
+      "tasks.application.Services.TarefaService/<Adicionar>d__4": {
+        "System.Void tasks.application.Services.TarefaService/<Adicionar>d__4::MoveNext()": {
+          "Lines": {
+            "32": 3,
+            "33": 3,
+            "34": 2,
+            "36": 1,
+            "37": 1,
+            "38": 1,
+            "39": 1,
+            "40": 1,
+            "41": 1,
+            "43": 1,
+            "45": 1,
+            "46": 1,
+            "47": 3
+          },
+          "Branches": [
+            {
+              "Line": 33,
+              "Offset": 34,
+              "EndOffset": 36,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 2
+            },
+            {
+              "Line": 33,
+              "Offset": 34,
+              "EndOffset": 43,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        }
+      },
+      "tasks.application.Services.TarefaService/<Alternar>d__5": {
+        "System.Void tasks.application.Services.TarefaService/<Alternar>d__5::MoveNext()": {
+          "Lines": {
+            "50": 2,
+            "51": 2,
+            "52": 3,
+            "54": 1,
+            "56": 1,
+            "57": 1,
+            "58": 1
+          },
+          "Branches": [
+            {
+              "Line": 52,
+              "Offset": 173,
+              "EndOffset": 175,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 52,
+              "Offset": 173,
+              "EndOffset": 186,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        }
+      },
+      "tasks.application.Services.TarefaService/<Remover>d__6": {
+        "System.Void tasks.application.Services.TarefaService/<Remover>d__6::MoveNext()": {
+          "Lines": {
+            "61": 3,
+            "62": 3,
+            "63": 2,
+            "64": 1,
+            "66": 1,
+            "67": 1,
+            "68": 1
+          },
+          "Branches": [
+            {
+              "Line": 63,
+              "Offset": 169,
+              "EndOffset": 171,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 2
+            },
+            {
+              "Line": 63,
+              "Offset": 169,
+              "EndOffset": 202,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 63,
+              "Offset": 207,
+              "EndOffset": 209,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 1
+            },
+            {
+              "Line": 63,
+              "Offset": 207,
+              "EndOffset": 220,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 1
+            }
+          ]
+        }
+      },
+      "tasks.application.Services.TarefaService/<ObterPorId>d__7": {
+        "System.Void tasks.application.Services.TarefaService/<ObterPorId>d__7::MoveNext()": {
+          "Lines": {
+            "71": 5
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/media/guilherme/C2ACF5C6ACF5B54F/React/tasks-backend/tasks.application/Services/UsuarioService.cs": {
+      "tasks.application.Services.UsuarioService": {
+        "System.Void tasks.application.Services.UsuarioService::Dispose()": {
+          "Lines": {
+            "62": 0,
+            "63": 0,
+            "64": 0
+          },
+          "Branches": []
+        },
+        "System.Void tasks.application.Services.UsuarioService::.ctor(AutoMapper.IMapper,tasks.domain.Interfaces.IUsuarioRepository,tasks.application.Interfaces.ISecurityService)": {
+          "Lines": {
+            "22": 8,
+            "23": 8,
+            "24": 8,
+            "25": 8,
+            "26": 8,
+            "27": 8,
+            "28": 8,
+            "29": 8
+          },
+          "Branches": []
+        }
+      },
+      "tasks.application.Services.UsuarioService/<ObterPorId>d__4": {
+        "System.Void tasks.application.Services.UsuarioService/<ObterPorId>d__4::MoveNext()": {
+          "Lines": {
+            "32": 1,
+            "33": 1,
+            "34": 1
+          },
+          "Branches": []
+        }
+      },
+      "tasks.application.Services.UsuarioService/<Adicionar>d__5": {
+        "System.Void tasks.application.Services.UsuarioService/<Adicionar>d__5::MoveNext()": {
+          "Lines": {
+            "37": 3,
+            "38": 5,
+            "40": 1,
+            "41": 1,
+            "42": 3
+          },
+          "Branches": [
+            {
+              "Line": 38,
+              "Offset": 42,
+              "EndOffset": 44,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 2
+            },
+            {
+              "Line": 38,
+              "Offset": 42,
+              "EndOffset": 51,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        }
+      },
+      "tasks.application.Services.UsuarioService/<Autenticar>d__6": {
+        "System.Void tasks.application.Services.UsuarioService/<Autenticar>d__6::MoveNext()": {
+          "Lines": {
+            "45": 4,
+            "47": 7,
+            "49": 1,
+            "50": 1,
+            "51": 1,
+            "53": 0,
+            "55": 1,
+            "56": 1,
+            "58": 1,
+            "59": 4
+          },
+          "Branches": [
+            {
+              "Line": 47,
+              "Offset": 31,
+              "EndOffset": 33,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 3
+            },
+            {
+              "Line": 47,
+              "Offset": 31,
+              "EndOffset": 40,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            },
+            {
+              "Line": 53,
+              "Offset": 209,
+              "EndOffset": 211,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 53,
+              "Offset": 209,
+              "EndOffset": 215,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 1
+            }
+          ]
+        }
+      }
+    },
+    "/media/guilherme/C2ACF5C6ACF5B54F/React/tasks-backend/tasks.application/AutoMapper/AutoMapperConfig.cs": {
+      "tasks.application.AutoMapper.AutoMapperConfig": {
+        "AutoMapper.MapperConfiguration tasks.application.AutoMapper.AutoMapperConfig::RegisterMappings()": {
+          "Lines": {
+            "8": 0,
+            "10": 0,
+            "11": 0,
+            "12": 0,
+            "13": 0,
+            "14": 0,
+            "15": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/media/guilherme/C2ACF5C6ACF5B54F/React/tasks-backend/tasks.application/AutoMapper/DomainToDTOMappingProfile.cs": {
+      "tasks.application.AutoMapper.DomainToDTOMappingProfile": {
+        "System.Void tasks.application.AutoMapper.DomainToDTOMappingProfile::.ctor()": {
+          "Lines": {
+            "9": 0,
+            "10": 0,
+            "11": 0,
+            "12": 0,
+            "13": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/media/guilherme/C2ACF5C6ACF5B54F/React/tasks-backend/tasks.application/AutoMapper/DTOMappingProfileToDomain.cs": {
+      "tasks.application.AutoMapper.DTOMappingProfileToDomain": {
+        "System.Void tasks.application.AutoMapper.DTOMappingProfileToDomain::.ctor()": {
+          "Lines": {
+            "9": 0,
+            "10": 0,
+            "11": 0,
+            "12": 0,
+            "13": 0,
+            "14": 0,
+            "15": 0
+          },
+          "Branches": []
+        }
+      }
+    }
+  },
+  "tasks.core.dll": {
+    "/media/guilherme/C2ACF5C6ACF5B54F/React/tasks-backend/tasks.core/Utils/ResourceMessages.cs": {
+      "tasks.core.Utils.ResourceMessages": {
+        "System.String tasks.core.Utils.ResourceMessages::get_LOGIN_INCORRETO()": {
+          "Lines": {
+            "5": 0
+          },
+          "Branches": []
+        }
+      }
+    }
+  },
+  "tasks.domain.dll": {
+    "/media/guilherme/C2ACF5C6ACF5B54F/React/tasks-backend/tasks.domain/ViewModels/AdicionarUsuarioViewModel.cs": {
+      "tasks.domain.ViewModels.AdicionarUsuarioViewModel": {
+        "System.String tasks.domain.ViewModels.AdicionarUsuarioViewModel::get_Nome()": {
+          "Lines": {
+            "7": 13
+          },
+          "Branches": []
+        },
+        "System.String tasks.domain.ViewModels.AdicionarUsuarioViewModel::get_Email()": {
+          "Lines": {
+            "8": 19
+          },
+          "Branches": []
+        },
+        "System.String tasks.domain.ViewModels.AdicionarUsuarioViewModel::get_Senha()": {
+          "Lines": {
+            "9": 13
+          },
+          "Branches": []
+        },
+        "System.Boolean tasks.domain.ViewModels.AdicionarUsuarioViewModel::EhValido()": {
+          "Lines": {
+            "12": 4,
+            "13": 4,
+            "14": 4,
+            "15": 4
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/media/guilherme/C2ACF5C6ACF5B54F/React/tasks-backend/tasks.domain/ViewModels/AutenticacaoRequisicaoViewModel.cs": {
+      "tasks.domain.ViewModels.AutenticacaoRequisicaoViewModel": {
+        "System.String tasks.domain.ViewModels.AutenticacaoRequisicaoViewModel::get_Email()": {
+          "Lines": {
+            "7": 19
+          },
+          "Branches": []
+        },
+        "System.String tasks.domain.ViewModels.AutenticacaoRequisicaoViewModel::get_Senha()": {
+          "Lines": {
+            "8": 15
+          },
+          "Branches": []
+        },
+        "System.Boolean tasks.domain.ViewModels.AutenticacaoRequisicaoViewModel::EhValido()": {
+          "Lines": {
+            "11": 4,
+            "12": 4,
+            "13": 4,
+            "14": 4
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/media/guilherme/C2ACF5C6ACF5B54F/React/tasks-backend/tasks.domain/ViewModels/AutenticacaoRespostaViewModel.cs": {
+      "tasks.domain.ViewModels.AutenticacaoRespostaViewModel": {
+        "System.Guid tasks.domain.ViewModels.AutenticacaoRespostaViewModel::get_Id()": {
+          "Lines": {
+            "8": 0
+          },
+          "Branches": []
+        },
+        "System.String tasks.domain.ViewModels.AutenticacaoRespostaViewModel::get_Nome()": {
+          "Lines": {
+            "9": 0
+          },
+          "Branches": []
+        },
+        "System.String tasks.domain.ViewModels.AutenticacaoRespostaViewModel::get_Email()": {
+          "Lines": {
+            "10": 0
+          },
+          "Branches": []
+        },
+        "System.String tasks.domain.ViewModels.AutenticacaoRespostaViewModel::get_Token()": {
+          "Lines": {
+            "11": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/media/guilherme/C2ACF5C6ACF5B54F/React/tasks-backend/tasks.domain/ViewModels/TarefaRequestViewModel.cs": {
+      "tasks.domain.ViewModels.TarefaRequestViewModel": {
+        "System.String tasks.domain.ViewModels.TarefaRequestViewModel::get_Descricao()": {
+          "Lines": {
+            "9": 16
+          },
+          "Branches": []
+        },
+        "System.DateTime tasks.domain.ViewModels.TarefaRequestViewModel::get_Estimado()": {
+          "Lines": {
+            "10": 13
+          },
+          "Branches": []
+        },
+        "System.Boolean tasks.domain.ViewModels.TarefaRequestViewModel::EhValido()": {
+          "Lines": {
+            "13": 3,
+            "14": 3,
+            "15": 3,
+            "16": 3
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/media/guilherme/C2ACF5C6ACF5B54F/React/tasks-backend/tasks.domain/ViewModels/TarefaResponseViewModel.cs": {
+      "tasks.domain.ViewModels.TarefaResponseViewModel": {
+        "System.Guid tasks.domain.ViewModels.TarefaResponseViewModel::get_Id()": {
+          "Lines": {
+            "7": 0
+          },
+          "Branches": []
+        },
+        "System.String tasks.domain.ViewModels.TarefaResponseViewModel::get_Descricao()": {
+          "Lines": {
+            "8": 0
+          },
+          "Branches": []
+        },
+        "System.DateTime tasks.domain.ViewModels.TarefaResponseViewModel::get_Estimado()": {
+          "Lines": {
+            "9": 0
+          },
+          "Branches": []
+        },
+        "System.Nullable`1<System.DateTime> tasks.domain.ViewModels.TarefaResponseViewModel::get_Concluido()": {
+          "Lines": {
+            "10": 0
+          },
+          "Branches": []
+        },
+        "System.String tasks.domain.ViewModels.TarefaResponseViewModel::get_Status()": {
+          "Lines": {
+            "11": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/media/guilherme/C2ACF5C6ACF5B54F/React/tasks-backend/tasks.domain/ViewModels/Validation.cs": {
+      "tasks.domain.ViewModels.Validation": {
+        "FluentValidation.Results.ValidationResult tasks.domain.ViewModels.Validation::get_ValidationResult()": {
+          "Lines": {
+            "8": 38
+          },
+          "Branches": []
+        },
+        "System.Boolean tasks.domain.ViewModels.Validation::EhValido()": {
+          "Lines": {
+            "14": 0,
+            "15": 0
+          },
+          "Branches": []
+        },
+        "System.Void tasks.domain.ViewModels.Validation::.ctor()": {
+          "Lines": {
+            "9": 10,
+            "10": 10,
+            "11": 10,
+            "12": 10
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/media/guilherme/C2ACF5C6ACF5B54F/React/tasks-backend/tasks.domain/ViewModels/Validacao/AdicionarUsuarioViewModelValidacao.cs": {
+      "tasks.domain.ViewModels.Validacao.AdicionarUsuarioViewModelValidacao": {
+        "System.Void tasks.domain.ViewModels.Validacao.AdicionarUsuarioViewModelValidacao::.ctor()": {
+          "Lines": {
+            "7": 4,
+            "8": 4,
+            "9": 4,
+            "10": 4,
+            "11": 4,
+            "13": 4,
+            "14": 4,
+            "15": 4,
+            "17": 4,
+            "18": 4,
+            "19": 4,
+            "20": 4
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/media/guilherme/C2ACF5C6ACF5B54F/React/tasks-backend/tasks.domain/ViewModels/Validacao/AutenticacaoRequisicaoViewModelValidacao.cs": {
+      "tasks.domain.ViewModels.Validacao.AutenticacaoRequisicaoViewModelValidacao": {
+        "System.Void tasks.domain.ViewModels.Validacao.AutenticacaoRequisicaoViewModelValidacao::.ctor()": {
+          "Lines": {
+            "7": 4,
+            "8": 4,
+            "9": 4,
+            "10": 4,
+            "11": 4,
+            "13": 4,
+            "14": 4,
+            "15": 4,
+            "16": 4
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/media/guilherme/C2ACF5C6ACF5B54F/React/tasks-backend/tasks.domain/ViewModels/Validacao/TarefaValidacao.cs": {
+      "tasks.domain.ViewModels.Validacao.TarefaValidacao": {
+        "System.String tasks.domain.ViewModels.Validacao.TarefaValidacao::get_DescricaoErroMsg()": {
+          "Lines": {
+            "8": 3
+          },
+          "Branches": []
+        },
+        "System.String tasks.domain.ViewModels.Validacao.TarefaValidacao::get_EstimadoErroMsg()": {
+          "Lines": {
+            "9": 3
+          },
+          "Branches": []
+        },
+        "System.Void tasks.domain.ViewModels.Validacao.TarefaValidacao::.ctor()": {
+          "Lines": {
+            "11": 3,
+            "12": 3,
+            "13": 3,
+            "14": 3,
+            "15": 3,
+            "17": 3,
+            "18": 3,
+            "19": 3,
+            "20": 3,
+            "21": 3
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/media/guilherme/C2ACF5C6ACF5B54F/React/tasks-backend/tasks.domain/Entities/AppSettings.cs": {
+      "tasks.domain.Entities.AppSettings": {
+        "System.Void tasks.domain.Entities.AppSettings::.cctor()": {
+          "Lines": {
+            "5": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/media/guilherme/C2ACF5C6ACF5B54F/React/tasks-backend/tasks.domain/Entities/Entity.cs": {
+      "tasks.domain.Entities.Entity": {
+        "System.Guid tasks.domain.Entities.Entity::get_Id()": {
+          "Lines": {
+            "7": 22
+          },
+          "Branches": []
+        },
+        "System.Boolean tasks.domain.Entities.Entity::Equals(System.Object)": {
+          "Lines": {
+            "15": 1,
+            "16": 1,
+            "18": 0,
+            "19": 0,
+            "21": 1,
+            "22": 1
+          },
+          "Branches": [
+            {
+              "Line": 18,
+              "Offset": 14,
+              "EndOffset": 16,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 18,
+              "Offset": 14,
+              "EndOffset": 20,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            },
+            {
+              "Line": 19,
+              "Offset": 26,
+              "EndOffset": 28,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 19,
+              "Offset": 26,
+              "EndOffset": 32,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 1
+            }
+          ]
+        },
+        "System.Boolean tasks.domain.Entities.Entity::op_Equality(tasks.domain.Entities.Entity,tasks.domain.Entities.Entity)": {
+          "Lines": {
+            "25": 5,
+            "26": 5,
+            "27": 1,
+            "29": 4,
+            "30": 4,
+            "32": 0,
+            "33": 5
+          },
+          "Branches": [
+            {
+              "Line": 26,
+              "Offset": 2,
+              "EndOffset": 4,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 26,
+              "Offset": 2,
+              "EndOffset": 10,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 4
+            },
+            {
+              "Line": 26,
+              "Offset": 13,
+              "EndOffset": 15,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 1
+            },
+            {
+              "Line": 26,
+              "Offset": 13,
+              "EndOffset": 19,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 4
+            },
+            {
+              "Line": 29,
+              "Offset": 20,
+              "EndOffset": 22,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 4
+            },
+            {
+              "Line": 29,
+              "Offset": 20,
+              "EndOffset": 28,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 29,
+              "Offset": 31,
+              "EndOffset": 33,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 4
+            },
+            {
+              "Line": 29,
+              "Offset": 31,
+              "EndOffset": 37,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Boolean tasks.domain.Entities.Entity::op_Inequality(tasks.domain.Entities.Entity,tasks.domain.Entities.Entity)": {
+          "Lines": {
+            "36": 0,
+            "37": 0,
+            "38": 0
+          },
+          "Branches": []
+        },
+        "System.Int32 tasks.domain.Entities.Entity::GetHashCode()": {
+          "Lines": {
+            "41": 0,
+            "42": 0,
+            "43": 0
+          },
+          "Branches": []
+        },
+        "System.String tasks.domain.Entities.Entity::ToString()": {
+          "Lines": {
+            "46": 0,
+            "47": 0,
+            "48": 0
+          },
+          "Branches": []
+        },
+        "System.Void tasks.domain.Entities.Entity::.ctor()": {
+          "Lines": {
+            "9": 10,
+            "10": 10,
+            "11": 10,
+            "12": 10
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/media/guilherme/C2ACF5C6ACF5B54F/React/tasks-backend/tasks.domain/Entities/ErrorResponse.cs": {
+      "tasks.domain.Entities.ErrorResponse": {
+        "System.Int32 tasks.domain.Entities.ErrorResponse::get_Status()": {
+          "Lines": {
+            "8": 0
+          },
+          "Branches": []
+        },
+        "System.String tasks.domain.Entities.ErrorResponse::get_Message()": {
+          "Lines": {
+            "9": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.IList`1<FluentValidation.Results.ValidationFailure> tasks.domain.Entities.ErrorResponse::get_Validation()": {
+          "Lines": {
+            "10": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/media/guilherme/C2ACF5C6ACF5B54F/React/tasks-backend/tasks.domain/Entities/Tarefa.cs": {
+      "tasks.domain.Entities.Tarefa": {
+        "System.String tasks.domain.Entities.Tarefa::get_Descricao()": {
+          "Lines": {
+            "9": 0
+          },
+          "Branches": []
+        },
+        "tasks.domain.Enums.TarefaStatus tasks.domain.Entities.Tarefa::get_Status()": {
+          "Lines": {
+            "10": 3
+          },
+          "Branches": []
+        },
+        "System.DateTime tasks.domain.Entities.Tarefa::get_Estimado()": {
+          "Lines": {
+            "11": 0
+          },
+          "Branches": []
+        },
+        "System.Nullable`1<System.DateTime> tasks.domain.Entities.Tarefa::get_Concluido()": {
+          "Lines": {
+            "12": 0
+          },
+          "Branches": []
+        },
+        "System.DateTime tasks.domain.Entities.Tarefa::get_DataCadastro()": {
+          "Lines": {
+            "13": 0
+          },
+          "Branches": []
+        },
+        "System.Guid tasks.domain.Entities.Tarefa::get_UsuarioId()": {
+          "Lines": {
+            "14": 8
+          },
+          "Branches": []
+        },
+        "tasks.domain.Entities.Usuario tasks.domain.Entities.Tarefa::get_Usuario()": {
+          "Lines": {
+            "15": 0
+          },
+          "Branches": []
+        },
+        "System.Void tasks.domain.Entities.Tarefa::Alternar()": {
+          "Lines": {
+            "28": 1,
+            "29": 0,
+            "30": 0,
+            "31": 0,
+            "32": 0,
+            "33": 1,
+            "34": 1,
+            "35": 1,
+            "36": 1
+          },
+          "Branches": [
+            {
+              "Line": 29,
+              "Offset": 25,
+              "EndOffset": 27,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 29,
+              "Offset": 25,
+              "EndOffset": 56,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        },
+        "System.Void tasks.domain.Entities.Tarefa::Criar()": {
+          "Lines": {
+            "37": 1
+          },
+          "Branches": []
+        },
+        "System.Void tasks.domain.Entities.Tarefa::.ctor(System.Guid,System.String,System.DateTime,System.Guid)": {
+          "Lines": {
+            "17": 6,
+            "18": 6,
+            "19": 6,
+            "20": 6,
+            "21": 6,
+            "22": 6,
+            "23": 6,
+            "24": 6
+          },
+          "Branches": []
+        },
+        "System.Void tasks.domain.Entities.Tarefa::.ctor()": {
+          "Lines": {
+            "26": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/media/guilherme/C2ACF5C6ACF5B54F/React/tasks-backend/tasks.domain/Entities/Usuario.cs": {
+      "tasks.domain.Entities.Usuario": {
+        "System.String tasks.domain.Entities.Usuario::get_Nome()": {
+          "Lines": {
+            "9": 0
+          },
+          "Branches": []
+        },
+        "System.String tasks.domain.Entities.Usuario::get_Email()": {
+          "Lines": {
+            "10": 0
+          },
+          "Branches": []
+        },
+        "System.String tasks.domain.Entities.Usuario::get_Senha()": {
+          "Lines": {
+            "13": 0
+          },
+          "Branches": []
+        },
+        "System.Void tasks.domain.Entities.Usuario::.ctor(System.Guid,System.String,System.String,System.String)": {
+          "Lines": {
+            "15": 4,
+            "16": 4,
+            "17": 4,
+            "18": 4,
+            "19": 4,
+            "20": 4,
+            "21": 4
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/media/guilherme/C2ACF5C6ACF5B54F/React/tasks-backend/tasks.domain/DTOs/UsuarioDto.cs": {
+      "tasks.domain.DTOs.UsuarioDto": {
+        "System.Guid tasks.domain.DTOs.UsuarioDto::get_Id()": {
+          "Lines": {
+            "7": 0
+          },
+          "Branches": []
+        },
+        "System.String tasks.domain.DTOs.UsuarioDto::get_Nome()": {
+          "Lines": {
+            "8": 0
+          },
+          "Branches": []
+        },
+        "System.String tasks.domain.DTOs.UsuarioDto::get_Email()": {
+          "Lines": {
+            "9": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/media/guilherme/C2ACF5C6ACF5B54F/React/tasks-backend/tasks.domain/DomainObjects/DomainException.cs": {
+      "tasks.domain.DomainException.DomainException": {
+        "System.Void tasks.domain.DomainException.DomainException::.ctor()": {
+          "Lines": {
+            "7": 0,
+            "8": 0
+          },
+          "Branches": []
+        },
+        "System.Void tasks.domain.DomainException.DomainException::.ctor(System.String)": {
+          "Lines": {
+            "10": 0,
+            "11": 0
+          },
+          "Branches": []
+        },
+        "System.Void tasks.domain.DomainException.DomainException::.ctor(System.String,System.Exception)": {
+          "Lines": {
+            "13": 0,
+            "14": 0
+          },
+          "Branches": []
+        }
+      }
+    }
+  }
+}
